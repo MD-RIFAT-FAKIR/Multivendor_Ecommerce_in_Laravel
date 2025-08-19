@@ -718,6 +718,7 @@
                 url: "/coupon-apply",
 
                 success:function(data){
+                    couponCalculation();
                    
                     if (data.validity == true) {
                         $('#couponField').hide();
@@ -758,16 +759,77 @@
 
         // Start CouponCalculation Method   
         function couponCalculation(){
-        $.ajax({
-            type: 'GET',
-            url: "/coupon-calculation",
-            dataType: 'json',
-            success:function(data){
-                
-            }
-        });
-        
+            $.ajax({
+                type: 'GET',
+                url: "/coupon-calculation",
+                dataType: 'json',
+                success:function(data){
+                    if (data.total) {
+                    $('#couponCalField').html(
+                        ` <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Subtotal</h6>
+                        </td>
+                        <td class="cart_total_amount">
+                            <h4 class="text-brand text-end">$${data.total}</h4>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Grand Total</h6>
+                        </td>
+                        <td class="cart_total_amount">
+                            <h4 class="text-brand text-end">$${data.total}</h4>
+                        </td>
+                    </tr>
+                    ` ) 
+                }else{
+                    $('#couponCalField').html(
+                        `<tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Subtotal</h6>
+                        </td>
+                        <td class="cart_total_amount">
+                            <h4 class="text-brand text-end">$${data.subtotal}</h4>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Coupon </h6>
+                        </td>
+                        <td class="cart_total_amount">
+    <h6 class="text-brand text-end">${data.coupon_name} <a><i class="fi-rs-trash"></i> </a> </h6>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Discount Amount  </h6>
+                        </td>
+                        <td class="cart_total_amount">
+        <h4 class="text-brand text-end">$${data.discount_amount}</h4>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="cart_total_label">
+                            <h6 class="text-muted">Grand Total </h6>
+                        </td>
+                        <td class="cart_total_amount">
+            <h4 class="text-brand text-end">$${data.total_amount}</h4>
+                        </td>
+                    </tr> `
+                        ) 
+                } 
+                    
+                }
+            });
+
         } 
+        couponCalculation();
         
         //ene coupon calculation
 
