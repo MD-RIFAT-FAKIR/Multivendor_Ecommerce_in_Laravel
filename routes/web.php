@@ -410,17 +410,17 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     //state
     Route::controller(ShippingAreaController::class)->group(function() {
-        //all district
+        //all state
         Route::get('all/state', 'AllState')->name('all.state');
-        //add district
+        //add state
         Route::get('add/state' , 'AddState')->name('add.state');
-        //store district
-        Route::post('store/district' , 'StoreDistrict')->name('store.district');
-        //edit district
+        //store state
+        Route::post('/store/state' , 'StoreState')->name('store.state');
+        //edit state
         Route::get('edit/district/{id}', 'EditDistrict')->name('edit.district');
-        //update division
+        //update state
         Route::post('update/district', 'UpdateDistrict')->name('update.district');
-        //delete division
+        //delete state
         Route::get('delete/district/{id}', 'DeleteDistrict')->name('delete.district');
         //get district using ajax
         Route::get('/district/ajax/{division_id}' , 'GetDistrict');
