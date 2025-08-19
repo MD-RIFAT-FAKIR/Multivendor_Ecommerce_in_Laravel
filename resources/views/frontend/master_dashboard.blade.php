@@ -648,6 +648,8 @@
                     success: function(data) {
                         cart();
                         miniCart();
+                        //coupon discount price will update if remove cart
+                        couponCalculation();
                         //sweet alart
                         const Toast = swal.mixin({
                             toast: true,
@@ -682,6 +684,8 @@
                     success: function(data) {
                         cart();
                         miniCart();
+                        //coupon discount price will update if Decrement cart
+                        couponCalculation();
                     }
                 });
             }
@@ -696,6 +700,8 @@
                     success: function(data) {
                         cart();
                         miniCart();
+                        //coupon discount price will update if Increment cart
+                        couponCalculation();
                     }
                 });
             }
