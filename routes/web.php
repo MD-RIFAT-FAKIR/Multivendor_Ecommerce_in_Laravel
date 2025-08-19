@@ -448,8 +448,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 });//Shipping Area system
 
 Route::controller(CheckoutConroller::class)->group(function(){
+    //selected division related all district will get
     Route::get('/district-get/ajax/{division_id}' , 'DistrictGetAjax');
+    //selected district related all State will get
     Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
+    Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
   
 
 }); 
