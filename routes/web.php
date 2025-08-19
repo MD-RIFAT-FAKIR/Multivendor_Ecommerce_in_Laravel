@@ -319,6 +319,8 @@ Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCom
 Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
 //coupon calculation
 Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
+//coupon remove
+Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 
 
 
