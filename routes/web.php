@@ -419,7 +419,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //edit state
         Route::get('/edit/state/{id}' , 'EditState')->name('edit.state');
         //update state
-        Route::post('update/district', 'UpdateDistrict')->name('update.district');
+        Route::post('/update/state' , 'UpdateState')->name('update.state');
         //delete state
         Route::get('delete/district/{id}', 'DeleteDistrict')->name('delete.district');
         //get district using ajax
