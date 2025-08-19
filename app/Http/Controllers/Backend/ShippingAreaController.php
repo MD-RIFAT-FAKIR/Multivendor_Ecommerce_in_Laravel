@@ -210,6 +210,17 @@ class ShippingAreaController extends Controller
 
         return redirect()->route('all.state')->with($notification); 
 
+    }// End Method 
 
+    public function DeleteState($id){
+
+        ShipState::findOrFail($id)->delete();
+
+            $notification = array(
+            'message' => 'State Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
     }// End Method 
 }
