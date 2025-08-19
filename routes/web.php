@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistConrtoller;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\CheckoutConroller;
+use App\Http\Controllers\User\StripeController;
 
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
@@ -453,6 +454,14 @@ Route::controller(CheckoutConroller::class)->group(function(){
     //selected district related all State will get
     Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
     Route::post('/checkout/store' , 'CheckoutStore')->name('checkout.store');
+  
+
+}); 
+
+ // Stripe All Route 
+Route::controller(StripeController::class)->group(function(){
+    Route::post('/stripe/order' , 'StripeOrder')->name('stripe.order');
+     
   
 
 }); 
