@@ -325,6 +325,23 @@ Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 
 
+//cart all route
+Route::controller(CartController::class)->group(function() {
+    Route::get('/mycart', 'MyCart')->name('mycart');
+    Route::get('/get-cart-product', 'GetMyCart');
+    Route::get('/cart-remove/{id}', 'CartRemove');
+    //decrement product quantiry
+    Route::get('/decrement-cart/{rowId}', 'DecrementCart');
+    //increment product quantiry
+    Route::get('/increment-cart/{rowId}', 'IncrementCart');
+});
+
+
+
+
+
+
+
 
 
 
@@ -350,18 +367,6 @@ Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checko
         });
     });
 
-    //cart all route
-    Route::middleware(['auth','role:user'])->group(function() {
-        Route::controller(CartController::class)->group(function() {
-            Route::get('/mycart', 'MyCart')->name('mycart');
-            Route::get('/get-cart-product', 'GetMyCart');
-            Route::get('/cart-remove/{id}', 'CartRemove');
-            //decrement product quantiry
-            Route::get('/decrement-cart/{rowId}', 'DecrementCart');
-            //increment product quantiry
-            Route::get('/increment-cart/{rowId}', 'IncrementCart');
-        });
-    });
 
 
 //coupn system all route
