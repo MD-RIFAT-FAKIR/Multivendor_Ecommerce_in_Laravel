@@ -21,6 +21,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistConrtoller;
 use App\Http\Controllers\User\CompareController;
+use App\Http\Controllers\User\CheckoutConroller;
 
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
@@ -445,3 +446,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
 
 });//Shipping Area system
+
+Route::controller(CheckoutConroller::class)->group(function(){
+    Route::get('/district-get/ajax/{division_id}' , 'DistrictGetAjax');
+    Route::get('/state-get/ajax/{district_id}' , 'StateGetAjax');
+  
+
+}); 

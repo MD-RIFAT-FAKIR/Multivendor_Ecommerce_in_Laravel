@@ -57,13 +57,8 @@
                              <div class="row shipping_calculator">
                                 <div class="form-group col-lg-6">
                                     <div class="custom_select">
-                                        <select class="form-control select-active">
-                                            <option value="">Select an option...</option>
-                                            <option value="AX">Aland Islands</option>
-                                            <option value="AF">Afghanistan</option>
-                                            <option value="AL">Albania</option>
-                                            <option value="DZ">Algeria</option>
-                                            <option value="AD">Andorra</option>
+                                        <select class="form-control select-active" name="district_id">
+                                            
                                              
                                         </select>
                                     </div>
@@ -78,13 +73,8 @@
  <div class="row shipping_calculator">
                                 <div class="form-group col-lg-6">
                                     <div class="custom_select">
-                                        <select class="form-control select-active">
-                                            <option value="">Select an option...</option>
-                                            <option value="AX">Aland Islands</option>
-                                            <option value="AF">Afghanistan</option>
-                                            <option value="AL">Albania</option>
-                                            <option value="DZ">Algeria</option>
-                                            <option value="AD">Andorra</option>
+                                        <select class="form-control select-active" name="state_id">
+                                            
                                              
                                         </select>
                                     </div>
@@ -243,9 +233,64 @@
         </div>
 
 
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+  		// Show district Data 
+  		$(document).ready(function(){
+  			$('select[name="division_id"]').on('change', function(){
+  				var division_id = $(this).val();
+          console.log("Division selected:", division_id); // debug
+  				if (division_id) {
+  					$.ajax({
+  						url: "{{ url('/district-get/ajax') }}/"+division_id,
+  						type: "GET",
+  						dataType:"json",
+  						success:function(data){
+                 console.log("District response:", data); // debug
+  							$('select[name="district_id"]').html('');
+  							var d =$('select[name="state_id"]').empty();
+  							$.each(data, function(key, value){
+  								$('select[name="district_id"]').append('<option value="'+ value.id + '">' + value.districts_name + '</option>');
+  							});
+  						},
+
+  					});
+  				} else {
+  					alert('danger');
+  				}
+  			});
+  		});
 
 
+  		// Show State Data 
+  		$(document).ready(function(){
+  			$('select[name="district_id"]').on('change', function(){
+  				var district_id = $(this).val();
+           console.log("District selected:", district_id); // debug
+  				if (district_id) {
+  					$.ajax({
+  						url: "{{ url('/state-get/ajax') }}/"+district_id,
+  						type: "GET",
+  						dataType:"json",
+  						success:function(data){
+                console.log("State response:", data); // debug
+  							$('select[name="state_id"]').html('');
+  							var d =$('select[name="state_id"]').empty();
+  							$.each(data, function(key, value){
+  								$('select[name="state_id"]').append('<option value="'+ value.id + '">' + value.state_name + '</option>');
+  							});
+  						},
 
+  					});
+  				} else {
+  					alert('danger');
+  				}
+  			});
+  		});
+
+  </script>
 
 
 @endsection
