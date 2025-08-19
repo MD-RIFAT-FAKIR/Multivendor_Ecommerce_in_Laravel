@@ -168,7 +168,27 @@ class CartController extends Controller
             return response()->json(['error' => 'Invalid Coupon']);
         }
 
-    }//
+    }//end frontend coupon apply
+
+    //calculation coupon
+     public function CouponCalculation(){
+
+        if (Session::has('coupon')) {
+            
+            return response()->json(array(
+             
+             'coupon_name' => session()->get('coupon')['coupon_name'],
+             'coupon_discount' => session()->get('coupon')['coupon_discount'],
+             'discount_amount' => session()->get('coupon')['discount_amount'],
+             'total_amount' => session()->get('coupon')['total_amount'],
+             'subtotal' => Cart::total(),
+            ));
+        }else{
+            return response()->json(array(
+                'total' => Cart::total(),
+            ));
+        } 
+    }// End Method
 
     
 

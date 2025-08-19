@@ -706,7 +706,8 @@
     <!-- End remove product from mycart page -->
 
     <script type="text/javascript">
-    
+
+
   function applyCoupon(id){
     var coupon_name = $('#coupon_name').val();
             $.ajax({
@@ -750,10 +751,25 @@
 
               // End Message  
 
-
                 }
             })
-        }
+        }//end apply coupon
+
+
+        // Start CouponCalculation Method   
+        function couponCalculation(){
+        $.ajax({
+            type: 'GET',
+            url: "/coupon-calculation",
+            dataType: 'json',
+            success:function(data){
+                
+            }
+        });
+        
+        } 
+        
+        //ene coupon calculation
 
 
 </script>
