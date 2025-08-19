@@ -183,4 +183,13 @@ class ShippingAreaController extends Controller
         return redirect()->route('all.state')->with($notification); 
 
     }// End Method 
+
+    //edit state
+    public function EditState($id){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistrict::orderBy('districts_name','ASC')->get();
+        $state = ShipState::findOrFail($id);
+
+         return view('backend.ship.state.state_edit',compact('division','district','state'));
+    }// End Method 
 }
