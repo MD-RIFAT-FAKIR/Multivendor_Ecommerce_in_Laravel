@@ -158,4 +158,11 @@ class ShippingAreaController extends Controller
 
         return view('backend.ship.state.state_add', compact('division', 'district'));
     }
+
+    //
+    public function GetDistrict($division_id){
+        $dist = ShipDistrict::where('division_id',$division_id)->orderBy('districts_name','ASC')->get();
+            return json_encode($dist);
+
+    }// End Method 
 }

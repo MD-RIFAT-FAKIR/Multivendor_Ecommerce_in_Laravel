@@ -422,6 +422,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('update/district', 'UpdateDistrict')->name('update.district');
         //delete division
         Route::get('delete/district/{id}', 'DeleteDistrict')->name('delete.district');
+        //get district using ajax
+        Route::get('/district/ajax/{division_id}' , 'GetDistrict');
     });//end district
 
 

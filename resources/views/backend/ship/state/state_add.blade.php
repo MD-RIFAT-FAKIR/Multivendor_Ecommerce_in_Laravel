@@ -97,8 +97,36 @@
                 $(element).removeClass('is-invalid');
             },
         });
-    });
-    
+    }); 
 </script>
+
+
+<!-- get selected division related all district -->
+<script type="text/javascript">
+  		
+  		$(document).ready(function(){
+  			$('select[name="division_id"]').on('change', function(){
+  				var division_id = $(this).val();
+  				if (division_id) {
+  					$.ajax({
+  						url: "{{ url('/district/ajax') }}/"+division_id,
+  						type: "GET",
+  						dataType:"json",
+  						success:function(data){
+  							$('select[name="districts_id"]').html('');
+  							var d =$('select[name="districts_id"]').empty();
+  							$.each(data, function(key, value){
+  								$('select[name="districts_id"]').append('<option value="'+ value.id + '">' + value.districts_name + '</option>');
+  							});
+  						},
+
+  					});
+  				} else {
+  					alert('danger');
+  				}
+  			});
+  		});
+
+  </script>
 <!-- end form validation -->
 @endsection
