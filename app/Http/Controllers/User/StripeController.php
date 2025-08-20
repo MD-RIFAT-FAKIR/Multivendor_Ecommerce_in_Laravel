@@ -37,9 +37,9 @@ class StripeController extends Controller
           'metadata' => ['order_id' => uniqid()],
         ]);
 
-        dd($charge);
 
-        $order_id = Order::isertGetId([
+        //store order bills related all data to database
+        $order_id = Order::insertGetId([
           'user_id' => Auth::id(),
           'division_id'=> $request->division_id,
           'district_id'=> $request->district_id,
@@ -65,7 +65,36 @@ class StripeController extends Controller
           'status'=> 'Pending',
           'created_at' => Carbon::now(),
         ]);
-        
+
+        //store ordered product related all data to database
+        $carts = Cart::content();
+        foreach ($carts as $cart) {
+          OrderItem::insert([
+          'order_id' => $order_id,
+          'product_id' => $cart->id,
+          'vendor_id' => $cart->options->vendor_id,
+          'color' => $cart->options->color,
+          'size' => $cart->options->size,
+          'qty' => $cart->qty,
+          'price' => $cart->price,
+          'created_at' => Carbon::now(),
+          ]);
+        }
+
+        //after palace order coupon will destroy
+        if(Session::has('coupon')) {
+          Session::forget('coupon');
+        }
+
+        //after palace order all cart will remove
+        Cart::destroy();
+
+        $notification = array(
+            'message' => 'Your order place succesfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('dashboard')->with($notification); 
 
     }// End Method
 }
