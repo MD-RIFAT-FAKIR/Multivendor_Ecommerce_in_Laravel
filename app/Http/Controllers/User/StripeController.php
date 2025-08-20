@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use Auth;
 use Stripe\Stripe;
 use Stripe\Charge;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 
 class StripeController extends Controller
 {
@@ -65,6 +67,22 @@ class StripeController extends Controller
           'status'=> 'Pending',
           'created_at' => Carbon::now(),
         ]);
+
+
+        //order confirmation email
+
+        $invoice = Order::findOrFail($order_id );
+
+        Mail::to($request->email)->send(new OrderMail([
+                'invoice_no' => $invoice->invoice_no,
+                'amount' => $total_amount,
+                'name' => $invoice->name,
+                'email' => $invoice->email,
+            ]));
+
+        //order confirmation email
+
+
 
         //store ordered product related all data to database
         $carts = Cart::content();
