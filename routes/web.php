@@ -27,6 +27,7 @@ use App\Http\Controllers\User\CODController;
 
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
+use App\Http\Controllers\Backend\OrderController;
 
 
 
@@ -468,3 +469,11 @@ Route::controller(StripeController::class)->group(function(){
 Route::controller(CODController::class)->group(function(){
     Route::post('/cash/order' , 'CashOrder')->name('cash.order');
 }); 
+
+//admin order manage all route
+    Route::middleware(['auth','role:admin'])->group(function() {
+        Route::controller(OrderController::class)->group(function() {
+            Route::get('/pending/orders', 'PendingOrder')->name('pending.orders');
+        });
+    });
+//admin order manage all route
