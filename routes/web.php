@@ -480,9 +480,9 @@ Route::controller(CODController::class)->group(function(){
 //admin order manage all route
 
 //vendor order manage all route
-    Route::middleware(['auth','role:vendor'])->group(function() {
-        Route::controller(VendorOrderController::class)->group(function() {
-            Route::get('/vendor/orders', 'VendorOrder')->name('vendor.orders');
-        });
+Route::middleware(['auth','role:vendor'])->group(function() {
+    Route::controller(VendorOrderController::class)->group(function() {
+        Route::get('/vendor/orders', 'VendorOrder')->name('vendor.orders');
     });
+});
 //vendor order manage all route

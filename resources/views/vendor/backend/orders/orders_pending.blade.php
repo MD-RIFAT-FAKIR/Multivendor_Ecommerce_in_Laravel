@@ -1,6 +1,6 @@
-@extends('admin.admin_dashboard')
+@extends('vendor.vendor_dashboard')
 
-@section('admin')
+@section('vendor')
 <div class="page-content">
 <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -33,14 +33,14 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($orders as $key => $item)
+            @foreach($OrderItem as $key => $item)
                 <tr>
-                    <td>{{$key+1}}</td>
-                    <td>{{$item->order_date}}</td>
-                    <td>{{$item->invoice_no}}</td>
-                    <td>${{$item->amount}}</td>
-                    <td>{{$item->payment_method}}</td>
-                    <td><span class="badge rounded-pill bg-success">{{$item->status}}</span></td>
+                    <td>{{ $key+1 }}</td>
+                    <td>{{ $item->order->order_date }}</td>
+                    <td>{{ $item->order->invoice_no }}</td>
+                    <td>${{ $item->order->amount }}</td>
+                    <td>{{ $item->order->payment_method }}</td>
+                    <td><span class="badge rounded-pill bg-success">{{ $item->order->status }}</span></td>
                     <td>
                       <a href="" class="btn btn-info" title="Details"><i class="fa fa-eye"></i></a>
                     </td>
