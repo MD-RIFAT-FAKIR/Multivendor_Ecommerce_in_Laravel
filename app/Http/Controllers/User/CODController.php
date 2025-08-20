@@ -10,6 +10,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon;
 use Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 
 class CODController extends Controller
 {
@@ -48,6 +50,17 @@ class CODController extends Controller
           'status' => 'Pending',
           'created_at' => Carbon::now(),
         ]);
+
+        //order confirmation email
+        $invoice = Order::findOrFail($order_id);
+
+        Mail::to($request->email)->send(new OrderMail([
+            'invoice_no' => $invoice->invoice_no,
+            'amount' => $total_amount,
+            'name' => $invoice->name,
+            'email' => $invoice->email,
+        ]));
+        //end order confirmation email
 
         //store ordered product related all data to database
         $carts = Cart::content();
