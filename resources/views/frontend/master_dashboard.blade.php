@@ -162,11 +162,12 @@
             var color = $('#color option:selected').text();
             var size = $('#size option:selected').text();
             var quantity = $('#qty').val();
+            var vendor_id = $('#pvendor_id').text();
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 data:{
-                    product_name:product_name, color:color, size:size, quantity:quantity
+                    product_name:product_name, color:color, size:size, quantity:quantity, vendor_id:vendor_id,
                 },
                 url:"/cart/data/store/"+ id,
                 success:function(data) {
