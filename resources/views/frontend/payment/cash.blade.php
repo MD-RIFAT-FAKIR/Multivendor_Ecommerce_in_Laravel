@@ -112,7 +112,7 @@
 
  <table class="table no-border">
   <tbody>
-          <form action="{{ route('stripe.order') }}" method="post">
+          <form action="{{ route('cash.order') }}" method="post">
         @csrf
 
         
@@ -133,7 +133,7 @@
         
     </div>
     <br>
-    <button class="btn btn-primary">Submit Payment</button>
+    <button class="btn btn-primary">Confirm Order</button>
           </tbody>
     </table>
 
