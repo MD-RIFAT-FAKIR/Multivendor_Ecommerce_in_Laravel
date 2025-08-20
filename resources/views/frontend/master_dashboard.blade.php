@@ -103,6 +103,7 @@
                     $('#pcategory').text(data.product.category.category_name);
                     $('#pcode').text(data.product.product_code);
                     $('#pimage').attr('src' , '/' + data.product.product_thambnail);
+                    $('#pvendor_id').text(data.product.vendor_id);
                     $('#product_id').val(id);
                     $('#qty').val(1);
 
