@@ -28,6 +28,7 @@ use App\Http\Controllers\User\CODController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\VendorOrderController;
 
 
 
@@ -477,3 +478,11 @@ Route::controller(CODController::class)->group(function(){
         });
     });
 //admin order manage all route
+
+//vendor order manage all route
+    Route::middleware(['auth','role:vendor'])->group(function() {
+        Route::controller(VendorOrderController::class)->group(function() {
+            Route::get('/vendor/orders', 'VendorOrder')->name('vendor.orders');
+        });
+    });
+//vendor order manage all route
