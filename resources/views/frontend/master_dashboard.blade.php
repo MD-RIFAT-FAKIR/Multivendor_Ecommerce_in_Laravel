@@ -198,7 +198,7 @@
             });
         }//end product add to cart
 
-
+  
         //start product add to cart from product details page
         function addToCartDetails() {
             var product_name = $('#dpname').text();
@@ -206,11 +206,12 @@
             var color = $('#dcolor option:selected').text();
             var size = $('#dsize option:selected').text();
             var quantity = $('#dqty').val();
+            var vendor_id = $('#vendor_id').val();
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 data:{
-                    product_name:product_name, color:color, size:size, quantity:quantity
+                    product_name:product_name, color:color, size:size, quantity:quantity, vendor_id:vendor_id,
                 },
                 url:"/dcart/data/store/"+ id,
                 success:function(data) {
