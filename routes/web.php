@@ -24,6 +24,7 @@ use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\CheckoutConroller;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\CODController;
+use App\Http\Controllers\User\AllUserController;
 
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
@@ -486,3 +487,12 @@ Route::middleware(['auth','role:vendor'])->group(function() {
     });
 });
 //vendor order manage all route
+
+//user dashboard all route
+    Route::middleware(['auth','role:user'])->group(function() {
+        Route::controller(AllUserController::class)->group(function() {
+            //user acount details page
+            Route::get('/user/acount/page', 'UserAcount')->name('user.acount.page');
+        });
+    });
+//end user dashboard all route
