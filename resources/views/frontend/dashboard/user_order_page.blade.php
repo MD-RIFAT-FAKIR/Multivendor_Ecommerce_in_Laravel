@@ -4,7 +4,7 @@
 <!-- font awsame cdn -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
- 
+
 <div class="page-header breadcrumb-wrap">
     <div class="container">
         <div class="breadcrumb">
@@ -30,45 +30,45 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table class="table" style="background: #ddd; font-weight: 600;">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Sl</th>
-                                                        <th>Date</th>
-                                                        <th>Total</th>
-                                                        <th>Payment</th>
-                                                        <th>Invoice</th>
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($orders as $key => $order)
-                                                    <tr>
-                                                        <td>{{ $key+1 }}</td>
-                                                        <td>{{ $order->order_date }}</td>
-                                                        <td>${{ $order->amount }}</td>
-                                                        <td>{{ $order->payment_method }}</td>
-                                                        <td>{{ $order->invoice_no }}</td>
-                                                        <td>
-                                                            @if($order->status == 'Pending')
-                                                                <span class="badge rounded-pill bg-warning">Pending</span>
-                                                            @elseif($order->status == 'confirm')
-                                                                <span class="badge rounded-pill bg-info">Confirm</span>
-                                                            @elseif($order->status == 'processing')
-                                                                <span class="badge rounded-pill bg-danger">Processing</span>
-                                                            @elseif($order->status == 'delivered')
-                                                                <span class="badge rounded-pill bg-success">Delivered</span>
-                                                           
-                                                            @endif
-                                                        </td>
-                                                            <td><a href="#" class="btn-sm btn-success"><i class="fa fa-eye"></i> View</a>
-                                                            <a href="#" class="btn-sm btn-primary"><i class="fa fa-download"></i> Invoice</a>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                  <table class="table" style="background: #ddd; font-weight: 600;">
+                      <thead>
+                          <tr>
+                              <th>Sl</th>
+                              <th>Date</th>
+                              <th>Total</th>
+                              <th>Payment</th>
+                              <th>Invoice</th>
+                              <th>Status</th>
+                              <th>Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach($orders as $key => $order)
+                          <tr>
+                              <td>{{ $key+1 }}</td>
+                              <td>{{ $order->order_date }}</td>
+                              <td>${{ $order->amount }}</td>
+                              <td>{{ $order->payment_method }}</td>
+                              <td>{{ $order->invoice_no }}</td>
+                              <td>
+                                  @if($order->status == 'Pending')
+                                      <span class="badge rounded-pill bg-warning">Pending</span>
+                                  @elseif($order->status == 'confirm')
+                                      <span class="badge rounded-pill bg-info">Confirm</span>
+                                  @elseif($order->status == 'processing')
+                                      <span class="badge rounded-pill bg-danger">Processing</span>
+                                  @elseif($order->status == 'delivered')
+                                      <span class="badge rounded-pill bg-success">Delivered</span>
+                                  
+                                  @endif
+                              </td>
+                                  <td><a href="{{ url('user/order_details', $order->id) }}" class="btn-sm btn-success"><i class="fa fa-eye"></i> View</a>
+                                  <a href="#" class="btn-sm btn-primary"><i class="fa fa-download"></i> Invoice</a>
+                              </td>
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
                                         </div>
                                     </div>
                                 </div>

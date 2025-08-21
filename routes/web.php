@@ -497,6 +497,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
             Route::get('/user/change/password', 'UserChangePassword')->name('user.change.password');
             //user order page
             Route::get('/user/order/page', 'UserOrderPage')->name('user.order.page');
+            //view user order details
+            Route::get('/user/order_details/{order_id}', 'UserOrderDetails');
         });
     });
 //end user dashboard all route

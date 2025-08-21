@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -30,5 +31,14 @@ class AllUserController extends Controller
         $id = Auth::user()->id;
         $orders = Order::where('user_id','=', $id)->orderBy('id', 'desc')->get();
         return view('frontend.dashboard.user_order_page', compact('orders'));
+    }
+
+    //view user order details
+    public function UserOrderDetails($order_id) {
+        $order =  Order::with('division','district','state','user')->where('id', '=', $order_id)->where('user_id', '=', Auth::id())->first();
+
+        $orderItem = OrderItem::with('product')->where('order_id ', '=', $order_id)->orderBy('id','desc')->get();
+
+        return view('frontend.order.order_details', compact('order','orderItem'));
     }
 }
