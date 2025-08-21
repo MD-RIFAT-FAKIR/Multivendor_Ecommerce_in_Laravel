@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -26,6 +27,8 @@ class AllUserController extends Controller
     }
     //order page
     public function UserOrderPage() {
-        return view('frontend.dashboard.user_order_page');
+        $id = Auth::user()->id;
+        $orders = Order::where('user_id','=', $id)->orderBy('id', 'desc')->get();
+        return view('frontend.dashboard.user_order_page', compact('orders'));
     }
 }
