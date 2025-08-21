@@ -493,6 +493,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::controller(AllUserController::class)->group(function() {
             //user acount details page
             Route::get('/user/acount/page', 'UserAcount')->name('user.acount.page');
+            //user change password page
+            Route::get('/user/change/password', 'UserChangePassword')->name('user.change.password');
         });
     });
 //end user dashboard all route

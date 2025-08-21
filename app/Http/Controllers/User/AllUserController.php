@@ -19,4 +19,9 @@ class AllUserController extends Controller
 
         return view('frontend.dashboard.acount_details', compact('UserData'));
     }
+
+    //
+    public function UserChangePassword() {
+        return view('frontend.dashboard.user_change_password');
+    }
 }

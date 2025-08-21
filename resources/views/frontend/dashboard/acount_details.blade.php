@@ -11,10 +11,10 @@
                 </div>
             </div>
         </div>
-        <div class="page-content pt-150 pb-150">
+        <div class="page-content pt-50 pb-50">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 m-auto">
+                    <div class="col-lg-12 m-auto">
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="dashboard-menu">
@@ -35,7 +35,7 @@
                                             <a class="nav-link active" href="{{ route('user.acount.page') }}"><i class="fi-rs-user mr-10"></i>Account details</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#change-password" ><i class="fi-rs-user mr-10"></i>Change Password</a>
+                                            <a class="nav-link" href="{{ route('user.change.password') }}" ><i class="fi-rs-user mr-10"></i>Change Password</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{route('user.profile.logout')}}"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
