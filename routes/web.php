@@ -499,6 +499,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
             Route::get('/user/order/page', 'UserOrderPage')->name('user.order.page');
             //view user order details
             Route::get('/user/order_details/{order_id}', 'UserOrderDetails');
+            //user invoice download
+            Route::get('user/order_invoice/{order_id}', 'UserOrderInvoice');
         });
     });
 //end user dashboard all route
