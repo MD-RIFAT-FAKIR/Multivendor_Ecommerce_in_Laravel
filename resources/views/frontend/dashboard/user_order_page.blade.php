@@ -51,7 +51,7 @@
                               <td>{{ $order->payment_method }}</td>
                               <td>{{ $order->invoice_no }}</td>
                               <td>
-                                  @if($order->status == 'Pending')
+                                  @if($order->status == 'pending')
                                       <span class="badge rounded-pill bg-warning">Pending</span>
                                   @elseif($order->status == 'confirm')
                                       <span class="badge rounded-pill bg-info">Confirm</span>
