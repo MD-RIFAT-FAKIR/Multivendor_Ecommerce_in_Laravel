@@ -485,6 +485,8 @@ Route::controller(CODController::class)->group(function(){
             Route::get('/delivered/orders', 'DeliveredOrder')->name('delivered.orders');
             //admin order details page
             Route::get('/admin/order/details/{order_id}', 'OrderDetails')->name('admin.order.details');
+            //order status pending to confirm
+            Route::get('/pending/confirm/{order_id}', 'PendingToConfirm')->name('pending-confirm');
         });
     });
 //admin order manage all route
