@@ -491,6 +491,8 @@ Route::controller(CODController::class)->group(function(){
             Route::get('/confirm/processing/{order_id}', 'ConfirmToProcessing')->name('confirm-processing');
             //order status processing to delivered
             Route::get('/processing/delivered/{order_id}', 'ProcessingToDelivered')->name('processing-delivered');
+            //admin invoice download
+            Route::get('/admin/invoice/download/{order_id}', 'AdminInvoiceDownload')->name('admin.invoice.download');
         });
     });
 //admin order manage all route
