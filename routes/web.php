@@ -475,7 +475,10 @@ Route::controller(CODController::class)->group(function(){
 //admin order manage all route
     Route::middleware(['auth','role:admin'])->group(function() {
         Route::controller(OrderController::class)->group(function() {
+            //admin dashboards pending orders 
             Route::get('/pending/orders', 'PendingOrder')->name('pending.orders');
+            //admin order details page
+            Route::get('/admin/order/details/{order_id}', 'OrderDetails')->name('admin.order.details');
         });
     });
 //admin order manage all route
