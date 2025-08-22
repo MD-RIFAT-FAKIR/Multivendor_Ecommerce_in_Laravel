@@ -481,6 +481,8 @@ Route::controller(CODController::class)->group(function(){
             Route::get('/confirmed/orders', 'ConfirmedOrder')->name('confirmed.orders');
             //admin dashboards processing orders 
             Route::get('/processing/orders', 'ProcessingOrder')->name('processing.orders');
+            //admin dashboards delivered orders 
+            Route::get('/delivered/orders', 'DeliveredOrder')->name('delivered.orders');
             //admin order details page
             Route::get('/admin/order/details/{order_id}', 'OrderDetails')->name('admin.order.details');
         });

@@ -37,4 +37,9 @@ class OrderController extends Controller
         $orders = Order::where('status', 'processing')->orderBy('id','desc')->get();
         return view('backend.orders.processing_orders', compact('orders'));
     }
+    //admin Delivered Order  status
+    public function DeliveredOrder() {
+        $orders = Order::where('status', 'delivered')->orderBy('id','desc')->get();
+        return view('backend.orders.delivered_orders', compact('orders'));
+    }
 }
