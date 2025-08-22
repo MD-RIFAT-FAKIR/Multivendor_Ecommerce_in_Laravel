@@ -67,3 +67,27 @@ $(function () {
     });
 });
 //end make order status confirm to Processing
+
+//make order status Processing to delivered
+$(function () {
+    $(document).on("click", "#delivered", function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+        Swal.fire({
+            title: "Are you sure to Delivered ?",
+            text: "Once Delivered, You will not be able to Processing again !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Delivered !",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link;
+                Swal.fire("Delivered!", "Delivered Change.", "success");
+            }
+        });
+    });
+});
+//end make order status Processing to delivered

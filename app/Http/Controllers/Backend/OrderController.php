@@ -69,5 +69,20 @@ class OrderController extends Controller
         );
 
         return redirect()->route('processing.orders')->with($notification);
+    }//end order status confirm to Processing
+
+
+    //order status processing to delivered
+    public function ProcessingToDelivered($order_id) {
+        Order::findOrFail($order_id)->update([
+            'status' => 'delivered',
+        ]);
+
+        $notification = array(
+            'message' => 'Order Delivered Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('delivered.orders')->with($notification);
     }
 }
