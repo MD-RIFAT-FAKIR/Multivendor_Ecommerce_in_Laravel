@@ -43,3 +43,27 @@ $(function () {
     });
 });
 //end make order status pending to confirm
+
+//make order status confirm to Processing
+$(function () {
+    $(document).on("click", "#processing", function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+        Swal.fire({
+            title: "Are you sure to Processing ?",
+            text: "Once Processing, You will not be able to confirm again !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Processing !",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link;
+                Swal.fire("Processing!", "Processing Change.", "success");
+            }
+        });
+    });
+});
+//end make order status confirm to Processing

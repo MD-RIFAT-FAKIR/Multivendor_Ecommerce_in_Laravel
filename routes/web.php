@@ -487,6 +487,8 @@ Route::controller(CODController::class)->group(function(){
             Route::get('/admin/order/details/{order_id}', 'OrderDetails')->name('admin.order.details');
             //order status pending to confirm
             Route::get('/pending/confirm/{order_id}', 'PendingToConfirm')->name('pending-confirm');
+            //order status confirm to processing
+            Route::get('/confirm/processing/{order_id}', 'ConfirmToProcessing')->name('confirm-processing');
         });
     });
 //admin order manage all route
