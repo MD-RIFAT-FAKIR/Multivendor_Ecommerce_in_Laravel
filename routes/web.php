@@ -479,6 +479,8 @@ Route::controller(CODController::class)->group(function(){
             Route::get('/pending/orders', 'PendingOrder')->name('pending.orders');
             //admin dashboards confirmed orders 
             Route::get('/confirmed/orders', 'ConfirmedOrder')->name('confirmed.orders');
+            //admin dashboards processing orders 
+            Route::get('/processing/orders', 'ProcessingOrder')->name('processing.orders');
             //admin order details page
             Route::get('/admin/order/details/{order_id}', 'OrderDetails')->name('admin.order.details');
         });

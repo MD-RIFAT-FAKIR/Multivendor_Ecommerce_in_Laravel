@@ -32,4 +32,9 @@ class OrderController extends Controller
         $orders = Order::where('status', 'confirm')->orderBy('id','desc')->get();
         return view('backend.orders.confirmed_orders', compact('orders'));
     }
+    //admin confirmed order status
+    public function ProcessingOrder() {
+        $orders = Order::where('status', 'processing')->orderBy('id','desc')->get();
+        return view('backend.orders.processing_orders', compact('orders'));
+    }
 }

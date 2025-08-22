@@ -151,7 +151,7 @@
 						</li>
 						<li> <a href="{{ route('confirmed.orders') }}"><i class="bx bx-right-arrow-alt"></i>Confirmed Orders</a>
 						</li>
-						<li> <a href="{{ route('pending.orders') }}"><i class="bx bx-right-arrow-alt"></i>Processing Orders</a>
+						<li> <a href="{{ route('processing.orders') }}"><i class="bx bx-right-arrow-alt"></i>Processing Orders</a>
 						</li>
 						<li> <a href="{{ route('pending.orders') }}"><i class="bx bx-right-arrow-alt"></i>Delivered Orders</a>
 						</li>
