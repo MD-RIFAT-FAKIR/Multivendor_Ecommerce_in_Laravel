@@ -520,6 +520,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
             Route::get('user/order_invoice/{order_id}', 'UserOrderInvoice');
             //user return order
             Route::post('user/return/order/{order_id}', 'ReturnOrder')->name('return.order');
+            //user return order view page
+            Route::get('user/return/order', 'ReturnOrderPage')->name('user.return.order');
         });
     });
 //end user dashboard all route
