@@ -166,7 +166,7 @@
 					<ul>
 						<li> <a href="{{ route('return.request') }}"><i class="bx bx-right-arrow-alt"></i>Return Request</a>
 						</li>
-						<li> <a href="{{ route('confirmed.orders') }}"><i class="bx bx-right-arrow-alt"></i>Complete Return</a>
+						<li> <a href="{{ route('complete.return.request') }}"><i class="bx bx-right-arrow-alt"></i>Complete Return</a>
 						</li>
 					</ul>
 				</li>

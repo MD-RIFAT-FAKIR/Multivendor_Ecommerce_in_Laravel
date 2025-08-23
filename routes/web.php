@@ -536,6 +536,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('return/request', 'ReturnRequest')->name('return.request');
         //retun request approved
         Route::get('return/request/approved/{order_id}', 'ReturnRequestApproved')->name('return.request.approved');
+        //complete retun request view page
+        Route::get('complete/return/request', 'CompleteReturnRequest')->name('complete.return.request');
         
     });//end order return request manage admin
 });

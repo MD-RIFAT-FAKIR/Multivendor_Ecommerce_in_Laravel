@@ -54,11 +54,11 @@
                               <td>{{ $order->return_reason }}</td>
                               <td>
                                   @if($order->return_order == 0)
-                                      <span class="badge rounded-pill bg-warning">No Return Request</span>
+                                      <span class="badge rounded-pill bg-primary">No Return Request</span>
                                   @elseif($order->return_order == 1)
                                       <span class="badge rounded-pill bg-info">Pending</span>
                                   @elseif($order->return_order == 2)
-                                      <span class="badge rounded-pill bg-danger">Success</span>
+                                      <span class="badge rounded-pill bg-success">Success</span>
                                   @endif
                               </td>
                                   <td><a href="{{ url('user/order_details', $order->id) }}" class="btn-sm btn-success"><i class="fa fa-eye"></i> View</a>
