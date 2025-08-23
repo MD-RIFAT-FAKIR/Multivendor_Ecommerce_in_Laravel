@@ -39,10 +39,12 @@
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
-						<div class="menu-title">All Orders</div>
+						<div class="menu-title">Manage Orders</div>
 					</a>
 					<ul>
 						<li> <a href="{{ route('vendor.orders') }}"><i class="bx bx-right-arrow-alt"></i>Vendor Orders</a>
+						</li>
+						<li> <a href="{{ route('vendor.return.orders') }}"><i class="bx bx-right-arrow-alt"></i>Return Orders</a>
 						</li>
 					</ul>
 				</li>
