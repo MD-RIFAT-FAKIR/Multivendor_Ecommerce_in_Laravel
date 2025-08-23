@@ -59,7 +59,9 @@
                                       <span class="badge rounded-pill bg-danger">Processing</span>
                                   @elseif($order->status == 'delivered')
                                       <span class="badge rounded-pill bg-success">Delivered</span>
-                                  
+                                    @if($order->return_order == 1)
+                                        <span class="badge rounded-pill bg-danger">Return</span>
+                                    @endif
                                   @endif
                               </td>
                                   <td><a href="{{ url('user/order_details', $order->id) }}" class="btn-sm btn-success"><i class="fa fa-eye"></i> View</a>

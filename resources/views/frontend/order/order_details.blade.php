@@ -249,28 +249,34 @@
                 </div>
 
                 <!--  // Start Return Order Option  -->
-                  @if($order->status !== 'delivered')
 
+
+                  
+                    @if($order->status !== 'delivered')
 
                     @else 
-                        @php 
-                            $order = App\Models\Order::where('id','=',$order->id)->where('return_reason', '=', 'NULL')->first();
-                        @endphp
+
+                    @php
+                    $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
+                    @endphp
 
                     @if($order)
                     <form action="{{ route('return.order',$order->id) }}" method="post">
                         @csrf
-                        <div class="form-group" style=" font-weight: 600; font-size: initial; color: #000000;
-                        ">
-                            <label>Order Return Reason</label>
-                            <textarea name="return_reason" class="form-control"  style="width:40%;"></textarea>
-                        </div>
-                        <button type="submit" class="btn-sm btn-danger"  style="width:40%;">Order Return</button>
+
+                    <div class="form-group" style=" font-weight: 600; font-size: initial; color: #000000; ">
+                                        <label>Order Return Reason</label>
+                                <textarea name="return_reason" class="form-control"  style="width:40%;"></textarea>
+                                    </div>
+                        <button type="submit" class="btn-sm btn-danger" style="width:40%;">Order Return</button>
                     </form>
+
                     @else
-                    <span style="width:40%; font-size: 20px; color: #f11818f7; font-weight: 900;">You have send return request for this product !!</span>
+
+                    <h5><span style="width:40%; font-size: 20px; color: #f11818f7; font-weight: 900;">You have send return request for this product !!</span></h5><br><br>
                     @endif
-                  @endif
+
+                    @endif
                 <!--  // End Return Order Option  -->
             </div>         
         </div>
