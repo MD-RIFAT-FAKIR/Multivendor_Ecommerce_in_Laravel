@@ -30,6 +30,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
+use App\Http\Controllers\Backend\ReturnController;
 
 
 
@@ -525,3 +526,14 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         });
     });
 //end user dashboard all route
+
+
+//order return request manage admin
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    //division 
+    Route::controller(ReturnController::class)->group(function() {
+        //all retun request 
+        Route::get('return/request', 'ReturnRequest')->name('return.request');
+        
+    });//end order return request manage admin
+});
