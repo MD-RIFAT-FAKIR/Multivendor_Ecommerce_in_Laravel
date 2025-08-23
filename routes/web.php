@@ -506,6 +506,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::get('/vendor/return/orders', 'VendorReturnOrder')->name('vendor.return.orders');
         //vendor return orders
         Route::get('/vendor/complete/return/orders', 'VendorCompleteReturnOrder')->name('vendor.complete.return.orders');
+        //vendor order details
+        Route::get('/vendor/order/details/{order_id}', 'VendorOrderDetails')->name('vendor.order.details');
 
     });
 });
