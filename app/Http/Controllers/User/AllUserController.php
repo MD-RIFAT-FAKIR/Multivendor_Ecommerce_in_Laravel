@@ -77,7 +77,7 @@ class AllUserController extends Controller
 
     //user dashboard return order page
     public function ReturnOrderPage() {
-        $orders = Order::where('user_id', '=', Auth::id())->where('return_order', '=', 1)->orderBy('id', 'desc')->get();
+        $orders = Order::where('user_id', '=', Auth::id())->where('return_reason', '!=', NULL)->orderBy('id', 'desc')->get();
 
         return view('frontend.order.return_order_view', compact('orders'));
     }
