@@ -31,6 +31,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
+use App\Http\Controllers\Backend\ReportController;
 
 
 
@@ -548,3 +549,13 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         
     });//end order return request manage admin
 });
+
+//ecommerce report all route
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    
+    Route::controller(ReportController::class)->group(function() {
+        //view report
+        Route::get('report.view', 'ReportView')->name('report.view');
+
+    });
+});//End ecommerce report all route
