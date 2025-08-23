@@ -518,6 +518,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
             Route::get('/user/order_details/{order_id}', 'UserOrderDetails');
             //user invoice download
             Route::get('user/order_invoice/{order_id}', 'UserOrderInvoice');
+            //user return order
+            Route::post('user/return/order/{order_id}', 'ReturnOrder')->name('return.order');
         });
     });
 //end user dashboard all route
