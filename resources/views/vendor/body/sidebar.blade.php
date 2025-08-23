@@ -44,7 +44,11 @@
 					<ul>
 						<li> <a href="{{ route('vendor.orders') }}"><i class="bx bx-right-arrow-alt"></i>Vendor Orders</a>
 						</li>
+
 						<li> <a href="{{ route('vendor.return.orders') }}"><i class="bx bx-right-arrow-alt"></i>Return Orders</a>
+						</li>
+
+						<li> <a href="{{ route('vendor.complete.return.orders') }}"><i class="bx bx-right-arrow-alt"></i>Complete Return Orders</a>
 						</li>
 					</ul>
 				</li>

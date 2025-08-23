@@ -27,4 +27,14 @@ class VendorOrderController extends Controller
         return view('vendor.backend.orders.return_orders', compact('OrderItem'));
 
     }
+
+
+    //vendor complete return order
+    public function VendorCompleteReturnOrder() {
+        $id = Auth::user()->id;
+        $OrderItem = OrderItem::with('order')->where('vendor_id', $id)->orderBy('id','desc')->get();
+
+        return view('vendor.backend.orders.complete_return_orders', compact('OrderItem'));
+
+    }
 }
