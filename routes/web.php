@@ -556,6 +556,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(ReportController::class)->group(function() {
         //view report
         Route::get('report.view', 'ReportView')->name('report.view');
+        //report search by date
+        Route::post('search/by/date', 'ReporSearchByDate')->name('search.by.date');
 
     });
 });//End ecommerce report all route

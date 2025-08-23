@@ -4,11 +4,23 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Order;
+use DateTime;
 
 class ReportController extends Controller
 {
     //
     public function ReportView() {
         return view('backend.reports.report_view');
+    }
+
+    //report search by date
+    public function ReporSearchByDate(Request $request) {
+        $data = new DateTime($request->date);
+        $dateFormat = $data->format('d F Y');
+
+        $orders = Order::where('order_date', '=', $dateFormat)->latest()->get();
+
+        return view('backend.reports.report_by_date', compact('orders', 'dateFormat'));
     }
 }
