@@ -32,4 +32,13 @@ class ReportController extends Controller
 
         return view('backend.reports.report_by_month', compact('orders', 'month', 'year_name'));
     }
+
+    public function ReporSearchByYear(Request $request) {
+        $year = $request->year;
+
+        $orders = Order::where('order_year', '=', $year)->latest()->get();
+
+         return view('backend.reports.report_by_year', compact('orders', 'year'));
+
+    }
 }

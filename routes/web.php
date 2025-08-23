@@ -560,6 +560,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('search/by/date', 'ReporSearchByDate')->name('search.by.date');
         //report search by month
         Route::post('search/by/month', 'ReporSearchByMonth')->name('search.by.month');
+        //report search by year
+        Route::post('search/by/year', 'ReporSearchByYear')->name('search.by.year');
 
     });
 });//End ecommerce report all route
