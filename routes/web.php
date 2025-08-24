@@ -32,6 +32,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\ActiveUsersController;
 
 
 
@@ -564,4 +565,14 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('search/by/year', 'ReporSearchByYear')->name('search.by.year');
 
     });
+
+    //all users
+    Route::controller(ActiveUsersController::class)->group(function() {
+        //all user 
+        Route::get('all/users', 'AllUsers')->name('all.users');
+
+    });    
+    //end all user
+
+
 });//End ecommerce report all route
