@@ -552,9 +552,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });//end order return request manage admin
 });
 
-//ecommerce report all route
+
 Route::middleware(['auth', 'role:admin'])->group(function() {
     
+    //ecommerce report all route
     Route::controller(ReportController::class)->group(function() {
         //view report
         Route::get('report.view', 'ReportView')->name('report.view');
@@ -565,7 +566,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //report search by year
         Route::post('search/by/year', 'ReporSearchByYear')->name('search.by.year');
 
-    });
+    });//End ecommerce report all route
+    
 
     //all users
     Route::controller(ActiveUsersController::class)->group(function() {
@@ -589,10 +591,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('edit/blog/category/{id}', 'EditBlogCategory')->name('edit.blog.category');
         //update blog 
         Route::post('update/blog/category/{id}', 'UpdateBlogCategory')->name('update.blog.category');
-
-
+        //delete blog 
+        Route::get('delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
     });    
     //end all blog route
 
 
-});//End ecommerce report all route
+});

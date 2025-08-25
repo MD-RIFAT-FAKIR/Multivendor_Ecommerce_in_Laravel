@@ -34,7 +34,7 @@ class BlogController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Blog Category Name Add succrssfully',
+            'message' => 'Blog Category Name Added succrssfully',
             'alert-type' => 'success'
         );
 
@@ -66,5 +66,17 @@ class BlogController extends Controller
         return redirect()->route('all.blog.category')->with($notification);
 
     }//end update blog category
+
+    //delete blog category name
+    public function DeleteBlogCategory($id) {
+        BlogCategory::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Blog Category Name Deleted succrssfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }//end delete blog category name
     
 }
