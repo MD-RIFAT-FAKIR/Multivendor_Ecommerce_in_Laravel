@@ -579,7 +579,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });    
     //end all user
 
-    //all blog route
+    //all blog category route
     Route::controller(BlogController::class)->group(function() {
         //add blog 
         Route::get('all/blog/category', 'BlogCategory')->name('all.blog.category');
@@ -594,7 +594,24 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //delete blog 
         Route::get('delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
     });    
-    //end all blog route
+    //end all blog category route
+
+     //all blog post route
+    Route::controller(BlogController::class)->group(function() {
+        //add blog 
+        Route::get('all/blog/post', 'BlogPost')->name('all.blog.post');
+        //add blog 
+        Route::get('add/blog/category', 'AddBlogCategory')->name('add.blog.category');
+        //store blog 
+        Route::post('store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
+        //edit blog 
+        Route::get('edit/blog/category/{id}', 'EditBlogCategory')->name('edit.blog.category');
+        //update blog 
+        Route::post('update/blog/category/{id}', 'UpdateBlogCategory')->name('update.blog.category');
+        //delete blog 
+        Route::get('delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
+    });    
+    //end all blog posts route
 
 
 });

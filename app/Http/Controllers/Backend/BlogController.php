@@ -79,4 +79,16 @@ class BlogController extends Controller
         return redirect()->back()->with($notification);
     }//end delete blog category name
     
+
+    /////////// vlog post ////////////
+
+    //all blog post
+    public function BlogPost() {
+
+        $blogPost = BlogPost::latest()->get();
+        return view('backend.blog.post.blog_post_all', compact('blogPost'));
+
+    }//end all blog post
+
+    /////////// end vlog post ////////////
 }
