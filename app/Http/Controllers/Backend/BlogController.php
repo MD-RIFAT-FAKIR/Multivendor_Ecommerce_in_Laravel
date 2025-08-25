@@ -39,6 +39,15 @@ class BlogController extends Controller
         );
 
         return redirect()->route('all.blog.category')->with($notification);
+
+    }//end store blog category to the db
+
+    //blog category edit page setup
+    public function EditBlogCategory($id) {
+        $blogCategory = BlogCategory::findOrFail($id);
+
+        return view('backend.blog.blog_category_edit', compact('blogCategory'));
     }
-    //end store blog category to the db
+    // end blog category edit page setup
+    
 }
