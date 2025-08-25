@@ -15,13 +15,13 @@ class BlogController extends Controller
     public function BlogCategory() {
 
         $blogCategories = BlogCategory::latest()->get();
-        return view('backend.blog.blog_category_all', compact('blogCategories'));
+        return view('backend.blog.category.blog_category_all', compact('blogCategories'));
 
     }//end all blog category
 
     //add blog category 
     public function AddBlogCategory() {
-        return view('backend.blog.blog_category_add');
+        return view('backend.blog.category.blog_category_add');
     }
     //end add blog category 
 
@@ -46,7 +46,7 @@ class BlogController extends Controller
     public function EditBlogCategory($id) {
         $blogCategory = BlogCategory::findOrFail($id);
 
-        return view('backend.blog.blog_category_edit', compact('blogCategory'));
+        return view('backend.blog.category.blog_category_edit', compact('blogCategory'));
 
     }// end blog category edit page setup
 
