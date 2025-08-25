@@ -600,8 +600,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(BlogController::class)->group(function() {
         //add blog 
         Route::get('all/blog/post', 'BlogPost')->name('all.blog.post');
-        //add blog 
-        Route::get('add/blog/category', 'AddBlogCategory')->name('add.blog.category');
+        //add blog post
+        Route::get('add/blog/post', 'AddBlogPost')->name('add.blog.post');
         //store blog 
         Route::post('store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
         //edit blog 
