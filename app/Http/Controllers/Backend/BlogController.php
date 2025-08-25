@@ -47,7 +47,24 @@ class BlogController extends Controller
         $blogCategory = BlogCategory::findOrFail($id);
 
         return view('backend.blog.blog_category_edit', compact('blogCategory'));
-    }
-    // end blog category edit page setup
+
+    }// end blog category edit page setup
+
+    //update blog category
+    public function UpdateBlogCategory(Request $request, $id) {
+        BlogCategory::findOrFail($id)->update([
+            'blog_category_name' =>  $request->blog_category_name,
+            'blog_category_slug' => strtolower(str_replace(' ', '_', $request->blog_category_name)),
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Blog Category Name Edited succrssfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.blog.category')->with($notification);
+
+    }//end update blog category
     
 }

@@ -587,6 +587,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
         //edit blog 
         Route::get('edit/blog/category/{id}', 'EditBlogCategory')->name('edit.blog.category');
+        //update blog 
+        Route::post('update/blog/category/{id}', 'UpdateBlogCategory')->name('update.blog.category');
 
 
     });    
