@@ -136,8 +136,37 @@ class BlogController extends Controller
         $blogPost = BlogPost::findOrFail($id);
 
         return view('backend.blog.post.blog_post_edit', compact('blogCategories', 'blogPost'));
-    }
+    }//end edit blog post
 
+    //update blog post
+    public function UpdateBlogPost(Request $request, $id) {
+        $manager = new ImageManager(new Driver);
+        $name_gen = hexdec(uniqid()).'.'.$request->file('post_image')->getClientOriginalExtension();
+
+        $img = $manager->read($request->file('post_image'));
+        $img = $img->resize(1103, 906);
+
+        $img->toJpeg()->save(base_path('public/upload/blog/'.$name_gen));
+        $save_url = 'upload/blog/'.$name_gen;
+
+        BlogPost::findOrFail($id)->update([
+            'category_id' => $request->category_id,
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ', '_', $request->post_title)),
+            'post_image' => $save_url,
+            'post_short_description' => $request->post_short_description,
+            'post_long_description' => $request->post_long_description,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Blog Post Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.blog.post')->with($notification);
+
+    }
 
     /////////// end vlog post ////////////
 }
