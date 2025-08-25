@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
-use Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use Carbon\Carbon;
 
 class BlogController extends Controller
@@ -96,6 +97,37 @@ class BlogController extends Controller
 
         return view('backend.blog.post.blog_post_add', compact('blogCategory'));
 
+    }
+
+    //store blog post
+    public function StoreBlogPost(Request $request) {
+
+        $manager = new ImageManager(new Driver());
+        $name_gen = hexdec(uniqid()).'.'.$request->file('post_image')->getClientOriginalExtension();
+
+        $img = $manager->read($request->file('post_image'));
+        $img = $img->resize(1102,906);
+
+        $img->toJpeg()->save(base_path('public/upload/blog/'.$name_gen));
+        $save_url = 'upload/blog/'.$name_gen;
+
+        BlogPost::insert([
+            'category_id' => $request->category_id,
+            'post_title' => $request->post_title,
+            'post_slug' => strtolower(str_replace(' ', '_', $request->post_title)),
+            'post_image' => $save_url,
+            'post_short_description' => $request->post_short_description,
+            'post_long_description' => $request->post_long_description,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Blog Post Created Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.blog.post')->with($notification);
+ 
     }
 
 

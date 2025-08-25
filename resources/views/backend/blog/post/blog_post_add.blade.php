@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form id="myForm" method="post" action="" enctype="multipart/form-data" >
+		<form id="myForm" method="post" action="{{ route('store.blog.post') }}" enctype="multipart/form-data" >
 			@csrf
 		 
 
@@ -136,12 +136,12 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                category_name: {
+                category_id: {
                     required : true,
                 }, 
             },
             messages :{
-                category_name: {
+                category_id: {
                     required : 'Please Enter Category Name',
                 },
             },

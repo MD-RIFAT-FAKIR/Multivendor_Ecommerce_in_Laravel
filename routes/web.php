@@ -602,8 +602,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('all/blog/post', 'BlogPost')->name('all.blog.post');
         //add blog post
         Route::get('add/blog/post', 'AddBlogPost')->name('add.blog.post');
-        //store blog 
-        Route::post('store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
+        //store blog post
+        Route::post('store/blog/post', 'StoreBlogPost')->name('store.blog.post');
         //edit blog 
         Route::get('edit/blog/category/{id}', 'EditBlogCategory')->name('edit.blog.category');
         //update blog 
