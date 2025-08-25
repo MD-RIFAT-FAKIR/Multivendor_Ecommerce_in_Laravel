@@ -17,4 +17,10 @@ class BlogController extends Controller
         return view('backend.blog.blog_category_all', compact('blogCategories'));
 
     }//end all blog category
+
+    //add blog category 
+    public function AddBlogCategory() {
+        return view('backend.blog.blog_category_add');
+    }
+    //end add blog category 
 }

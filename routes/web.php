@@ -579,8 +579,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     //all blog route
     Route::controller(BlogController::class)->group(function() {
-        //all user 
+        //add blog 
         Route::get('all/blog/category', 'BlogCategory')->name('all.blog.category');
+        //add blog 
+        Route::get('add/blog/category', 'AddBlogCategory')->name('add.blog.category');
 
 
     });    
