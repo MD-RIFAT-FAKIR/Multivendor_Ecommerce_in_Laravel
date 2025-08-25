@@ -608,8 +608,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('edit/blog/post/{id}', 'EditBlogPost')->name('edit.blog.post');
         //update blog post
         Route::post('update/blog/post/{id}', 'UpdateBlogPost')->name('update.blog.post');
-        //delete blog 
-        Route::get('delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
+        //delete blog post
+        Route::get('delete/blog/post/{id}', 'DeleteBlogPost')->name('delete.blog.post');
     });    
     //end all blog posts route
 

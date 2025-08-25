@@ -166,6 +166,18 @@ class BlogController extends Controller
 
         return redirect()->route('all.blog.post')->with($notification);
 
+    }// end update blog post
+
+    //delete blog post
+    public function DeleteBlogPost($id) {
+        BlogPost::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'Blog Post Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 
     /////////// end vlog post ////////////
