@@ -570,6 +570,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(ActiveUsersController::class)->group(function() {
         //all user 
         Route::get('all/users', 'AllUsers')->name('all.users');
+        //all user 
+        Route::get('all/vendors', 'AllVendors')->name('all.vendors');
 
     });    
     //end all user

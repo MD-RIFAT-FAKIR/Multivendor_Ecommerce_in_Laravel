@@ -192,7 +192,7 @@
 					<ul>
 						<li> <a href="{{ route('all.users') }}"><i class="bx bx-right-arrow-alt"></i>All Users</a>
 						</li>
-						<li> <a href="{{ route('report.view') }}"><i class="bx bx-right-arrow-alt"></i>All Vendors</a>
+						<li> <a href="{{ route('all.vendors') }}"><i class="bx bx-right-arrow-alt"></i>All Vendors</a>
 						</li>
 					</ul>
 				</li>
