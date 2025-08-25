@@ -106,7 +106,7 @@ class BlogController extends Controller
         $name_gen = hexdec(uniqid()).'.'.$request->file('post_image')->getClientOriginalExtension();
 
         $img = $manager->read($request->file('post_image'));
-        $img = $img->resize(1102,906);
+        $img = $img->resize(1103,906);
 
         $img->toJpeg()->save(base_path('public/upload/blog/'.$name_gen));
         $save_url = 'upload/blog/'.$name_gen;
@@ -128,6 +128,14 @@ class BlogController extends Controller
 
         return redirect()->route('all.blog.post')->with($notification);
  
+    }//store blog post
+
+    //edit blog post
+    public function EditBlogPost($id) {
+        $blogCategories = BlogCategory::latest()->get();
+        $blogPost = BlogPost::findOrFail($id);
+
+        return view('backend.blog.post.blog_post_edit', compact('blogCategories', 'blogPost'));
     }
 
 
