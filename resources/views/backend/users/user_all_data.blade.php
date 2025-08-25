@@ -41,7 +41,11 @@
                     <td>{{ $item->email  }}</td>
                     <td>{{ $item->phone }}</td>
                     <td>
-                      <span class="badge rounded-pill bg-success">{{ $item->status }}</span>                      
+                        @if($item->UserActiveStatus())
+                        <span class="badge rounded-pill bg-success">Active Now</span>
+                        @else
+                        <span class="badge rounded-pill bg-warning">{{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}</span>
+                        @endif                                           
                     </td>                
                     <td>
                         <a href="{{ route('edit.subcategory',$item->id) }}" class="btn btn-info">Edit</a>
