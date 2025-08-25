@@ -33,6 +33,7 @@ use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ActiveUsersController;
+use App\Http\Controllers\Backend\BlogController;
 
 
 
@@ -575,6 +576,15 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     });    
     //end all user
+
+    //all blog route
+    Route::controller(BlogController::class)->group(function() {
+        //all user 
+        Route::get('all/blog/category', 'BlogCategory')->name('all.blog.category');
+
+
+    });    
+    //end all blog route
 
 
 });//End ecommerce report all route
