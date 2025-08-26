@@ -623,7 +623,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/blog', 'HomeBlogPost')->name('home.blog');
         //post details page
         Route::get('post/details/{id}/{post_slug}', 'BlogDetails');
-
-        
+        //post category 
+        Route::get('post/category/{id}/{post_slug}', 'BlogCategoryPost');
     });    
 //end forntend blog post all route

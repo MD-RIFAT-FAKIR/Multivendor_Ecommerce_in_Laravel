@@ -203,9 +203,14 @@ public function BlogDetails(Request $request, $id) {
     return view('frontend.blog.blog_details', compact('blogCategories', 'blogdetails', 'bredCat'));
 }//end post details page
 
+//post category
+public function BlogCategoryPost($id, $slug) {
+    $blogCategories = BlogCategory::latest()->get();
+    $blogPost = BlogPost::where('category_id', '=', $id)->get();
+    $bredCat = BlogCategory::where('id', $id)->get();
 
-
-
+    return view('frontend.blog.blog_category', compact('blogCategories', 'blogPost', 'bredCat'));
+}
 
 //////////////////// end frontend vlog /////////////////////////
 
