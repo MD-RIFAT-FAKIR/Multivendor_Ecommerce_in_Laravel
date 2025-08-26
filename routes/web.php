@@ -621,6 +621,9 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(BlogController::class)->group(function() {
         //home blog 
         Route::get('/blog', 'HomeBlogPost')->name('home.blog');
+        //post details page
+        Route::get('post/details/{id}/{post_slug}', 'BlogDetails');
+
         
     });    
 //end forntend blog post all route

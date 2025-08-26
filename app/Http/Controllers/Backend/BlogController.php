@@ -194,6 +194,15 @@ public function HomeBlogPost() {
     return view('frontend.blog.home_blog', compact('blogCategories', 'blogPost'));
 }
 
+//post details page
+public function BlogDetails(Request $request, $id) {
+    $blogCategories = BlogCategory::latest()->get();
+    $blogdetails = BlogPost::findOrFail($id);
+    $bredCat = BlogCategory::where('id', $blogdetails->category_id)->get();
+
+    return view('frontend.blog.blog_details', compact('blogCategories', 'blogdetails', 'bredCat'));
+}//end post details page
+
 
 
 
