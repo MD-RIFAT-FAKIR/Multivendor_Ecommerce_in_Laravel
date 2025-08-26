@@ -25,6 +25,7 @@ use App\Http\Controllers\User\CheckoutConroller;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\CODController;
 use App\Http\Controllers\User\AllUserController;
+use App\Http\Controllers\User\ReviewController;
 
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
@@ -627,3 +628,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('post/category/{id}/{post_slug}', 'BlogCategoryPost');
     });    
 //end forntend blog post all route
+
+//product review all route
+Route::controller(ReviewController::class)->group(function() {
+    //store review to database
+    Route::post('store/review', 'StoreReview')->name('store.review');
+});
+
+//end product review all route

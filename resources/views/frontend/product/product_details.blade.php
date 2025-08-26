@@ -376,8 +376,17 @@
                                             @else                                         
                                             <div class="row">
                                                 <div class="col-lg-8 col-md-12">
-                                                    <form class="form-contact comment_form" action="#" id="commentForm">
+                                                    <form class="form-contact comment_form" action="{{ route('store.review') }}" method="post" id="commentForm">
+                                                        @csrf
                                                         <div class="row">
+
+                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                                        @if($product->vendor_id == NULL)
+                                                        <input type="hidden" name="vendor_id" value="">
+                                                        @else
+                                                        <input type="hidden" name="vendor_id" value="{{ $product->vendor_id }}">
+                                                        @endif
                                         <table class="table" style=" width: 40%;">
                                             <thead>
                                                 <tr>
