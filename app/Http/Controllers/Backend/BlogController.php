@@ -181,4 +181,24 @@ class BlogController extends Controller
     }
 
     /////////// end vlog post ////////////
+
+
+
+
+//////////////////// frontend vlog /////////////////////////
+
+public function HomeBlogPost() {
+    $blogCategories = BlogCategory::latest()->get();
+    $blogPost = BlogPost::latest()->get();
+
+    return view('frontend.blog.home_blog', compact('blogCategories', 'blogPost'));
+}
+
+
+
+
+
+//////////////////// end frontend vlog /////////////////////////
+
+
 }

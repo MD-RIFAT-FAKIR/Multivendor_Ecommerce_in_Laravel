@@ -615,3 +615,12 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
 
 });
+
+
+//forntend blog post all route
+    Route::controller(BlogController::class)->group(function() {
+        //home blog 
+        Route::get('/blog', 'HomeBlogPost')->name('home.blog');
+        
+    });    
+//end forntend blog post all route
