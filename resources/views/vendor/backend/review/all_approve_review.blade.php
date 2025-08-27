@@ -83,7 +83,7 @@
                       @if($item->status == 0)
                         <span class="badge rounded-pill bg-warning">Pending</span>
                         @elseif($item->status == 1)
-                        <span class="badge rounded-pill bg-warning">Publish</span>
+                        <span class="badge rounded-pill bg-success">Publish</span>
                        @endif
                     </td>
                 </tr>
