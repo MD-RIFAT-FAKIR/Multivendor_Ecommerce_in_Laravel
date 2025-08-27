@@ -616,8 +616,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     //admin product review all route
     Route::controller(ReviewController::class)->group(function() {
-        //store review to database
+        //admin pending review page
         Route::get('pending/review', 'PendingReview')->name('pending.review');
+        //admin approve review 
+        Route::get('approve/review/{id}', 'ApproveReview')->name('approve.review');
     });
     //end admin product review all route
 

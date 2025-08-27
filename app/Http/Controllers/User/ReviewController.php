@@ -46,6 +46,19 @@ class ReviewController extends Controller
         return view('backend.review.pending_review', compact('review'));
     }//end admin pending review
 
+    //admin approve review
+    public function ApproveReview($id) {
+        Review::where('id',$id)->update([
+            'status' => 1,
+        ]);
+
+        $notification = array(
+            'message' => 'Review approved successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }//end admin approve review
 
 
     ///////////// end admin review manage ////////////////

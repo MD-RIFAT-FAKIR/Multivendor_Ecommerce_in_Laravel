@@ -86,7 +86,7 @@
                        @endif
                     </td>
                     <td>
-                        <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info">Approve</a>
+                        <a href="{{ route('approve.review',$item->id) }}" class="btn btn-info">Approve</a>
                     </td>
                 </tr>
             @endforeach
