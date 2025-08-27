@@ -620,6 +620,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('pending/review', 'PendingReview')->name('pending.review');
         //admin approve review 
         Route::get('approve/review/{id}', 'ApproveReview')->name('approve.review');
+        //admin published review page
+        Route::get('published/review', 'PublishedReview')->name('published.review');
     });
     //end admin product review all route
 

@@ -60,6 +60,13 @@ class ReviewController extends Controller
         return redirect()->back()->with($notification);
     }//end admin approve review
 
+    //admin published review
+    public function PublishedReview() {
+        $review = Review::where('status', 1)->orderBy('id', 'desc')->get();
+
+        return view('backend.review.puplished_review', compact('review'));
+    }//end admin published review
+
 
     ///////////// end admin review manage ////////////////
 }
