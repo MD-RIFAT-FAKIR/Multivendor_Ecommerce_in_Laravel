@@ -622,6 +622,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('approve/review/{id}', 'ApproveReview')->name('approve.review');
         //admin published review page
         Route::get('published/review', 'PublishedReview')->name('published.review');
+        //admin delete review page
+        Route::get('delete/review/{id}', 'DeleteReview')->name('delete.review');
     });
     //end admin product review all route
 

@@ -38,7 +38,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{Str::limit($item->comment, 25)}}</td>
                     <td>{{$item->user->name}}</td>
-                    <td>{{$item->product->product_name}}</td>
+                    <td>{{Str::limit($item->product->product_name, 25)}}</td>
                     <td> 
                       @if($item->rating == NULL)
                       <i class="bx bxs-star text-secondary"></i>
@@ -86,7 +86,7 @@
                        @endif
                     </td>
                     <td>
-                        <a href="{{ route('approve.review',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                        <a href="{{ route('delete.review',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
                     </td>
                 </tr>
             @endforeach

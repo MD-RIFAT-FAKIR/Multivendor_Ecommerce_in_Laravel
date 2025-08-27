@@ -115,3 +115,27 @@ $(function () {
     });
 });
 //end Return order approved by admin
+
+//review approved by admin
+$(function () {
+    $(document).on("click", "#approve", function (e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+
+        Swal.fire({
+            title: "Are you sure to Approved ?",
+            text: "Review Approved !",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Approved !",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link;
+                Swal.fire("Approved!", "Approved Change.", "success");
+            }
+        });
+    });
+});
+//end review approved by admin

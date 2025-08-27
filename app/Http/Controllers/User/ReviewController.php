@@ -67,6 +67,18 @@ class ReviewController extends Controller
         return view('backend.review.puplished_review', compact('review'));
     }//end admin published review
 
+    //admin delete review
+    public function DeleteReview($id) {
+        Review::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Review deleted successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
 
     ///////////// end admin review manage ////////////////
 }
