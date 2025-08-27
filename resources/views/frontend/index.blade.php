@@ -1,5 +1,10 @@
 @extends('frontend.master_dashboard')
 @section('main')
+        <!-- master dashboard blade title -->
+        @section('title')
+            Home Easy Multivendor Shop
+        @endsection 
+        <!-- end master dashboard blade title -->
         <!--hero slider-->
             @include('frontend.home.home_slider')
         <!--End hero slider-->
