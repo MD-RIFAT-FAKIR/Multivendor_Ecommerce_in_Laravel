@@ -57,10 +57,32 @@
                                     <h2 class="title-detail" id="dpname">{{ $product->product_name }}</h2>
                                     <div class="product-detail-rating">
                                         <div class="product-rate-cover text-end">
-                                            <div class="product-rate d-inline-block">
-                                                <div class="product-rating" style="width: 90%"></div>
-                                            </div>
-                                            <span class="font-small ml-5 text-muted"> (32 reviews)</span>
+
+                                        @php 
+                                            $ratings = App\Models\Review::where('product_id', $product->id)->where('status', 1)->latest()->get();
+                                        @endphp
+
+                                        @php 
+                                            $averageRating = App\Models\Review::where('product_id', $product->id)->where('status', 1)->avg('rating');
+                                        @endphp
+
+                                <div class="product-rate d-inline-block">
+                                    @if($averageRating == 0)
+                                    @elseif($averageRating == 1 || $averageRating < 2)
+                                    <div class="product-rating" style="width: 20%"></div>
+                                    @elseif($averageRating == 2 || $averageRating < 3)
+                                    <div class="product-rating" style="width: 40%"></div>
+                                    @elseif($averageRating == 3 || $averageRating < 4)
+                                    <div class="product-rating" style="width: 60%"></div>
+                                    @elseif($averageRating == 4 || $averageRating < 5)
+                                    <div class="product-rating" style="width: 80%"></div>
+                                    @elseif($averageRating == 5 || $averageRating < 5)
+                                    <div class="product-rating" style="width: 100%"></div>
+                                    @endif
+
+                                </div>
+
+                                            <span class="font-small ml-5 text-muted"> ({{ count($ratings) }} reviews)</span>
                                         </div>
                                     </div>
                                     <div class="clearfix product-price-cover">
@@ -169,7 +191,7 @@
                                         <a class="nav-link" id="Vendor-info-tab" data-bs-toggle="tab" href="#Vendor-info">Vendor</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (3)</a>
+                                        <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews ({{ count($ratings) }})</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content shop_info_tab entry-main-content">
