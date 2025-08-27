@@ -553,7 +553,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });//end order return request manage admin
 });
 
-
+//admin middleware
 Route::middleware(['auth', 'role:admin'])->group(function() {
     
     //ecommerce report all route
@@ -614,8 +614,16 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });    
     //end all blog posts route
 
+    //admin product review all route
+    Route::controller(ReviewController::class)->group(function() {
+        //store review to database
+        Route::get('pending/review', 'PendingReview')->name('pending.review');
+    });
+    //end admin product review all route
+
 
 });
+//end admin middleware
 
 
 //forntend blog post all route
@@ -634,5 +642,4 @@ Route::controller(ReviewController::class)->group(function() {
     //store review to database
     Route::post('store/review', 'StoreReview')->name('store.review');
 });
-
 //end product review all route
