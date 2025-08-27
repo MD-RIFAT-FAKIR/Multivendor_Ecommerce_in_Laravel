@@ -504,6 +504,7 @@ Route::controller(CODController::class)->group(function(){
 
 //vendor order manage all route
 Route::middleware(['auth','role:vendor'])->group(function() {
+    //vendor order all route
     Route::controller(VendorOrderController::class)->group(function() {
         Route::get('/vendor/orders', 'VendorOrder')->name('vendor.orders');
         //vendor return orders
@@ -512,8 +513,17 @@ Route::middleware(['auth','role:vendor'])->group(function() {
         Route::get('/vendor/complete/return/orders', 'VendorCompleteReturnOrder')->name('vendor.complete.return.orders');
         //vendor order details
         Route::get('/vendor/order/details/{order_id}', 'VendorOrderDetails')->name('vendor.order.details');
-
     });
+    //vendor order all route
+
+    //product review all route
+    Route::controller(ReviewController::class)->group(function() {
+        Route::get('vendor/all/review', 'VendorAllReview')->name('vendor.all.review');
+    });
+    //end product review all route
+
+
+
 });
 //vendor order manage all route
 
