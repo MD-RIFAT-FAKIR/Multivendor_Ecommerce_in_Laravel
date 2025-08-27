@@ -35,6 +35,7 @@ use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ActiveUsersController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\SiteSettingController;
 
 
 
