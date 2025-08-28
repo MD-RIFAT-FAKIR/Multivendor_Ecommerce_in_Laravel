@@ -645,12 +645,12 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //update site settings 
         Route::post('update/site/settings', 'UpdateSiteSettings')->name('site.setting.update');
 
-        
+
         ////////seo settins/////////
         //admin seo settings page
         Route::get('seo/settings', 'SeoSettings')->name('seo.settings');
-
-
+         //update site settings 
+        Route::post('update/seo/settings', 'UpdateSeoSettings')->name('seo.setting.update');
         ///////end seo settins//////
     });
     //end admin site settings all route
