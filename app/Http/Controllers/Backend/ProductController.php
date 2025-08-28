@@ -277,4 +277,12 @@ class ProductController extends Controller
     
     }//end
 
+
+    //////////////admin sidebar product stock////////////
+    public function ProductStock() {
+        $products = Product::latest()->get();
+        return view('backend.product.product_stock', compact('products'));
+    }
+    ////////////end admin sidebar product stock//////////
+
 }

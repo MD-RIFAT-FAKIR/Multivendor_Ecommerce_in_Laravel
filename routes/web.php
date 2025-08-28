@@ -253,6 +253,12 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('product/active/{id}', 'ProductActive')->name('product.active');
         //delete admin poduct
         Route::get('delete/product/{id}', 'DeleteProduct')->name('delete.product');
+
+        //stock product
+        Route::get('product/stock', 'ProductStock')->name('product.stock');
+        //end stock product
+
+
     });// end Admin product all route
 
     //Slider all route

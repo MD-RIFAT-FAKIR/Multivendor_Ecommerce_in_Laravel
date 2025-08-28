@@ -239,6 +239,18 @@
 					</ul>
 				</li>
 
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Manage Stocks</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('product.stock') }}"><i class="bx bx-right-arrow-alt"></i>Product Stock</a>
+						</li>
+					</ul>
+				</li>
+
 				
 				<li class="menu-label">Charts & Maps</li>
 				<li>
