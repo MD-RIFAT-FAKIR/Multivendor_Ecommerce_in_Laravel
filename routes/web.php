@@ -638,6 +638,12 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });
     //end admin product review all route
 
+    //admin site settings all route
+    Route::controller(SiteSettingController::class)->group(function() {
+        //admin site settings page
+        Route::get('site/settings', 'SiteSettings')->name('site.settings');
+    });
+    //end admin site settings all route
 
 });
 //end admin middleware

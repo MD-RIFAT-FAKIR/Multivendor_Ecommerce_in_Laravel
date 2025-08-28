@@ -226,20 +226,19 @@
 				</li>
 
 				<li>
-					<a class="has-arrow" href="javascript:;">
-						<div class="parent-icon"> <i class="bx bx-donate-blood"></i>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class="bx bx-category"></i>
 						</div>
-						<div class="menu-title">Icons</div>
+						<div class="menu-title">Settings</div>
 					</a>
 					<ul>
-						<li> <a href="icons-line-icons.html"><i class="bx bx-right-arrow-alt"></i>Line Icons</a>
+						<li> <a href="{{ route('site.settings') }}"><i class="bx bx-right-arrow-alt"></i>Site Settings</a>
 						</li>
-						<li> <a href="icons-boxicons.html"><i class="bx bx-right-arrow-alt"></i>Boxicons</a>
-						</li>
-						<li> <a href="icons-feather-icons.html"><i class="bx bx-right-arrow-alt"></i>Feather Icons</a>
+						<li> <a href="{{ route('published.review') }}"><i class="bx bx-right-arrow-alt"></i>Published Review</a>
 						</li>
 					</ul>
 				</li>
+
 				
 				<li class="menu-label">Charts & Maps</li>
 				<li>
