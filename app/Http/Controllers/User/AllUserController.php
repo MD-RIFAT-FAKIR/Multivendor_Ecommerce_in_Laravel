@@ -80,5 +80,10 @@ class AllUserController extends Controller
         $orders = Order::where('user_id', '=', Auth::id())->where('return_reason', '!=', NULL)->orderBy('id', 'desc')->get();
 
         return view('frontend.order.return_order_view', compact('orders'));
+    }//end user dashboard return order page
+
+    //user dashboard order track page
+    public function TrackOrder() {
+        return view('frontend.dashboard.user_track_order');
     }
 }

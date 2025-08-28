@@ -551,6 +551,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
             Route::post('user/return/order/{order_id}', 'ReturnOrder')->name('return.order');
             //user return order view page
             Route::get('user/return/order', 'ReturnOrderPage')->name('user.return.order');
+            //user order track page
+            Route::get('user/track/order', 'TrackOrder')->name('user.track.order');
         });
     });
 //end user dashboard all route
