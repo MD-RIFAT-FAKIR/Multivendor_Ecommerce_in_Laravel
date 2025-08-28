@@ -107,6 +107,24 @@ class IndexController extends Controller
             'size' => $product_size,
             'color' => $product_color
         ));
+    }//end product quick view modal
+
+
+
+    //////////////Frontend Product search///////////////////
+    public function SearchProduct(Request $request) {
+        $search_item = $request->search;
+
+        $request->validate([
+            'search' => 'required',
+        ]);
+
+        $products = Product::where('product_name', 'like', '%'.$search_item.'%')->get();
+        $categories = Category::orderBy('category_name','ASC')->get();
+        $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
+
+        return view('frontend.product.search_product', compact('products', 'search_item', 'categories', 'newProduct'));
     }
+    //////////////end Frontend Product search///////////////
 }
 

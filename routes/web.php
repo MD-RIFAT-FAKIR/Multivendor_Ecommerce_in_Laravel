@@ -686,3 +686,10 @@ Route::controller(ReviewController::class)->group(function() {
     Route::post('store/review', 'StoreReview')->name('store.review');
 });
 //end product review all route
+
+//search product item all route
+Route::controller(IndexController::class)->group(function() {
+    //search item
+    Route::post('/search', 'SearchProduct')->name('search.product');
+});
+//end search product item all route
