@@ -644,6 +644,14 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('site/settings', 'SiteSettings')->name('site.settings');
         //update site settings 
         Route::post('update/site/settings', 'UpdateSiteSettings')->name('site.setting.update');
+
+        
+        ////////seo settins/////////
+        //admin seo settings page
+        Route::get('seo/settings', 'SeoSettings')->name('seo.settings');
+
+
+        ///////end seo settins//////
     });
     //end admin site settings all route
 

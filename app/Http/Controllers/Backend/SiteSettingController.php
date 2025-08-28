@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SiteSetting;
+use App\Models\Seo;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -76,5 +77,19 @@ class SiteSettingController extends Controller
 
         }
         
+    }////////////////////end Site settings///////////////////
+
+
+
+    ////////////seo settings////////////////
+    public function SeoSettings() {
+        $seo = Seo::find(1);
+
+        return view('backend.seo.seo_update', compact('seo'));
     }
+
+
+
+
+    ////////////seo end settings////////////
 }
