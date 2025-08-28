@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form method="post" action="" enctype="multipart/form-data" >
+		<form method="post" action="{{ route('site.setting.update') }}" enctype="multipart/form-data" >
 			@csrf
 		
 		<input type="hidden" name="id" value="{{ $setting->id }}">
