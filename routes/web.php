@@ -553,6 +553,8 @@ Route::middleware(['auth','role:vendor'])->group(function() {
             Route::get('user/return/order', 'ReturnOrderPage')->name('user.return.order');
             //user order track page
             Route::get('user/track/order', 'TrackOrder')->name('user.track.order');
+            //user track order by invioce
+            Route::post('track/by/invoice', 'TrackOrderInvoice')->name('track.by.invioce.no');
         });
     });
 //end user dashboard all route

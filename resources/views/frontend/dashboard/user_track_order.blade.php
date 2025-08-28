@@ -37,7 +37,7 @@
             
             
 
-    <form method="post" action="" > 
+    <form method="post" action="{{ route('track.by.invioce.no') }}" > 
             @csrf 
 
 <div class="row">
