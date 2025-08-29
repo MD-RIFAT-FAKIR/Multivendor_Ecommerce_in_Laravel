@@ -124,7 +124,23 @@ class IndexController extends Controller
         $newProduct = Product::orderBy('id','DESC')->limit(3)->get();
 
         return view('frontend.product.search_product', compact('products', 'search_item', 'categories', 'newProduct'));
-    }
+    }//end
+
+    //search recommendation using ajax
+    public function SearchRecomnend(Request $request) {
+
+        $request->validate([
+            'search' => 'required',
+        ]);
+
+        $search_item = $request->search;
+
+        $products = Product::where('product_name', 'like', '%'.$search_item.'%')->select('id', 'product_name', 'product_slug', 'product_thambnail', 'selling_price')->limit(6)->get();
+
+        return view('frontend.product.search_recommendation', compact('products'));
+    }//end search recommendation using ajax
+
+
     //////////////end Frontend Product search///////////////
 }
 

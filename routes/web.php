@@ -691,5 +691,7 @@ Route::controller(ReviewController::class)->group(function() {
 Route::controller(IndexController::class)->group(function() {
     //search item
     Route::post('/search', 'SearchProduct')->name('search.product');
+    //search recomnend using ajax 
+    Route::post('/search-product', 'SearchRecomnend');
 });
 //end search product item all route
