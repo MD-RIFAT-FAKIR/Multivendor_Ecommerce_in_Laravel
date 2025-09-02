@@ -689,7 +689,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //all roles
         Route::get('all/roles', 'AllRoles')->name('all.roles');
         //add roles
-        Route::get('add/permission', 'AddPermission')->name('add.permission');
+        Route::get('add/role', 'AddRole')->name('add.role');
         //store roles
         Route::post('store/permission', 'StorePermission')->name('store.premission');
         //edit roles

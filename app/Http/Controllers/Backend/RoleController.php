@@ -85,6 +85,11 @@ class RoleController extends Controller
     }
 
 
+    //add role page setup
+    public function AddRole() {
+        return view('backend.pages.role.add_role');
+    }
+
 
 
 
