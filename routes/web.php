@@ -697,7 +697,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //update roles
         Route::post('update/role', 'UpdateRole')->name('update.role');
         //delete roles
-        Route::get('delete/permission/{id}', 'DeletePermission')->name('delete.permission');
+        Route::get('delete/role/{id}', 'DeleteRole')->name('delete.role');
         
     });//end admin roles all route
 
