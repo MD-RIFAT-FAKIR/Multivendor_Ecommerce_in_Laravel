@@ -81,7 +81,7 @@
                                     <option>Noodles & Rice</option>
                                     <option>Ice cream</option>
                                 </select>
-                                <input name="search" id="search" placeholder="Search for items..." />
+                                <input onfocus="search_result_show()" onblur="search_result_hide()" name="search" id="search" placeholder="Search for items..." />
                                 <div id="searchProducts"></div>
                             </form>
                         </div>
@@ -355,6 +355,34 @@
             </div>
         </div>
     </header>
+    <!-- end header section -->
+
+<!-- searrch results show style -->
+ <style>
+    #searchProducts{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 999;
+        border-radius: 8px;
+        margin-top: 5px;
+    }
+</style>
+
+<script>
+    function search_result_show(){
+        $("#searchProducts").slideDown();
+
+    }
+
+    function search_result_hide(){
+        $("#searchProducts").slideUp();
+    }
+</script>
+<!-- end searrch results show style -->
+
     <div class="mobile-header-active mobile-header-wrapper-style">
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
@@ -375,6 +403,8 @@
                         <button type="submit"><i class="fi-rs-search"></i></button>
                     </form>
                 </div>
+
+
                 <div class="mobile-menu-wrap mobile-header-border">
                     <!-- mobile menu start -->
                     <nav>
