@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form id="myForm" method="post" action=""  >
+		<form id="myForm" method="post" action="{{ route('store.role.permission') }}"  >
 			@csrf
 		 
 			<div class="row mb-3">
@@ -37,7 +37,7 @@
 					<h6 class="mb-0">Roles Name</h6>
 				</div>
 				<div class="form-group col-sm-9 text-secondary">
-				<select class="form-select mb-3" aria-label="Default select example">
+				<select class="form-select mb-3" name="role_id" aria-label="Default select example">
 				<option selected="">Open this select menu</option>
 				@foreach($roles as $role)
 				<option value="{{ $role->id }}">{{ $role->name }}</option>
@@ -67,8 +67,8 @@
 							@endphp
 							@foreach($permissions as $permission)
 								<div class="form-check">								
-									<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-									<label class="form-check-label" for="flexCheckDefault">{{ $permission->name }}</label>
+									<input class="form-check-input" name="permission[]" type="checkbox" value="{{ $permission->id }}" id="flexCheckDefault{{ $permission->id }}">
+									<label class="form-check-label" for="flexCheckDefault{{ $permission->id }}">{{ $permission->name }}</label>
 								</div>
 								<br>
 							@endforeach

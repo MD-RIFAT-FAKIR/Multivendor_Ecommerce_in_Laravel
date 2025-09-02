@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use DB;
 
 class RoleController extends Controller
 {
@@ -148,12 +149,35 @@ class RoleController extends Controller
 
 
 /////////////role in permission///////////////
-public function RolesInPermission() {
-    $roles = Role::all();
-    $permissions = Permission::all();
-    $permission_group = User::getPermissionGroup();
-    return view('backend.pages.role.add_role_permission', compact('roles', 'permissions', 'permission_group'));
-}
+
+    //role permission page
+    public function RolesInPermission() {
+        $roles = Role::all();
+        $permissions = Permission::all();
+        $permission_group = User::getPermissionGroup();
+        return view('backend.pages.role.add_role_permission', compact('roles', 'permissions', 'permission_group'));
+    }
+
+    //store role permission
+    public function StoreRolesPermission(Request $request) {
+        $data = array();
+        $permissions = $request->permission;
+
+        foreach($permissions as $key => $permission){
+            $data['role_id'] = $request->role_id;
+            $data['permission_id'] = $permission;
+
+            DB::table('role_has_permissions')->insert($data);
+        }
+
+        $notification = array(
+            'message' => 'Role Permission Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.roles')->with($notification);
+
+    }//end store role permission
 
 
 

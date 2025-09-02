@@ -703,7 +703,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         ////////role in permission/////////
         //role in permission
         Route::get('role/in/permission', 'RolesInPermission')->name('role.in.permission');
-
+        //store role permission
+        Route::post('store/role/permission', 'StoreRolesPermission')->name('store.role.permission');
 
 
         ///////end role in permission//////
