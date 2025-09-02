@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form id="myForm" method="post" action=""  >
+		<form id="myForm" method="post" action="{{ route('update.role') }}"  >
 			@csrf
 		 <input type="hidden" name="id" value="{{ $roles->id }}">
 
@@ -47,7 +47,7 @@
 			<div class="row">
 				<div class="col-sm-3"></div>
 				<div class="col-sm-9 text-secondary">
-					<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+					<input type="submit" class="btn btn-primary px-4" value="Update Role" />
 				</div>
 			</div>
 		</div>
