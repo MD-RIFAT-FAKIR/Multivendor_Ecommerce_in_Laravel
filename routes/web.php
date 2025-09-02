@@ -671,6 +671,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::controller(RoleController::class)->group(function() {
         //all permission
         Route::get('all/permission', 'AllPermission')->name('all.permission');
+        //add permission
+        Route::get('add/permission', 'AddPermission')->name('add.permission');
         
     });//end admin role and permission all route
 

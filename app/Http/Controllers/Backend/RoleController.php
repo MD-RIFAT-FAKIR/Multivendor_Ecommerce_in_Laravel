@@ -15,4 +15,8 @@ class RoleController extends Controller
 
         return view('backend.pages.permission.all_permission', compact('permissions'));
     }
+    //add permission
+    public function AddPermission() {
+        return view('backend.pages.permission.add_permission');
+    }
 }
