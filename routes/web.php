@@ -693,7 +693,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //store roles
         Route::post('store/role', 'StoreRole')->name('store.role');
         //edit roles
-        Route::get('edit/permission/{id}', 'EditPermission')->name('edit.permission');
+        Route::get('edit/role/{id}', 'EditRole')->name('edit.role');
         //update roles
         Route::post('update/permission', 'UpdatePermission')->name('update.permission');
         //delete roles
