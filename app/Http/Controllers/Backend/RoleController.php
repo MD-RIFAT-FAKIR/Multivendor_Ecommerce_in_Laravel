@@ -186,6 +186,17 @@ class RoleController extends Controller
     }//end all role permission
     
 
+    //edit role permission
+    public function EditRolePermission($id) {
+        $role = Role::findOrFail($id);
+        $permissions = Permission::all();
+        $permission_group = User::getPermissionGroup();
+
+        return view('backend.pages.role.edit_role_permission', compact('role', 'permissions', 'permission_group'));
+    }
+
+
+
 ///////////end role in permission/////////////
 
 

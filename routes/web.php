@@ -707,6 +707,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::post('store/role/permission', 'StoreRolesPermission')->name('store.role.permission');
         //all role permission
         Route::get('all/role/permission', 'AllRolePermission')->name('all.role.permission');
+        //admin edit role
+        Route::get('admin/edit/role/{id}', 'EditRolePermission')->name('admin.edit.role');
         ///////end role in permission//////
         
     });//end admin roles all route
