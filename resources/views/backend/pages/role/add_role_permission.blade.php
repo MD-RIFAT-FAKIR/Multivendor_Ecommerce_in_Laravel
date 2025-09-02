@@ -41,11 +41,15 @@
 				<option selected="">Open this select menu</option>
 				@foreach($roles as $role)
 				<option value="{{ $role->id }}">{{ $role->name }}</option>
-				 @endforeach
+				@endforeach
 			</select>
 				</div>
 			</div> 
 
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultAll">
+				<label class="form-check-label" for="flexCheckDefaultAll">Permission All</label>
+			</div>
 
 			<hr>
 
@@ -98,4 +102,17 @@
 			</div>
 
 
+			<!-- select all permission -->
+			 <script type="text/javascript">
+				$('#flexCheckDefaultAll').click(function() {
+					if($(this).is(':checked')) {
+						$('input[type = checkbox]').prop('checked', true);
+					}else{
+						$('input[type = checkbox]').prop('checked', false);
+					}
+				});
+			 </script>
+			<!-- end select all permission -->
+
 @endsection
+
