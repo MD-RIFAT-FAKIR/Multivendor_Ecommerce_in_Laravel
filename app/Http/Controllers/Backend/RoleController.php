@@ -19,4 +19,19 @@ class RoleController extends Controller
     public function AddPermission() {
         return view('backend.pages.permission.add_permission');
     }
+
+    //store permission in database
+    public function StorePermission(Request $request) {
+        Permission::create([
+            'name' => $request->name,
+            'group_name' => $request->group_name
+        ]);
+
+       $notification = array(
+            'message' => 'Permisson Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.permission')->with($notification);
+    }
 }

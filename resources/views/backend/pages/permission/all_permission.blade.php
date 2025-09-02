@@ -40,6 +40,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{$item->name }}</td>
                     <td>{{$item->group_name}}</td>
+                    <td>
                         <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info">Edit</a>
                         <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger" id="delete">Delete</a>
                     </td>
