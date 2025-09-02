@@ -264,6 +264,8 @@
 						</li>
 						<li> <a href="{{ route('all.roles') }}"><i class="bx bx-right-arrow-alt"></i>All Roles</a>
 						</li>
+						<li> <a href="{{ route('role.in.permission') }}"><i class="bx bx-right-arrow-alt"></i>Role in Permission</a>
+						</li>
 					</ul>
 				</li>
 				

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Cache;
 use Spatie\Permission\Traits\HasRoles;
+use DB;
 
 class User extends Authenticatable
 {
@@ -43,4 +44,18 @@ class User extends Authenticatable
     public function UserActiveStatus() {
         return Cache::has('user-is-active' . $this->id);
     }
+
+    //get permission group
+    public static function getPermissionGroup() {
+        $permission_group = DB::table('permissions')->select('group_name')->groupBy('group_name')->get();
+        return $permission_group;
+    }//end
+
+    //get permission by gorup_name
+    public static function getPermissionByGroupName($group_name) {
+        $permissions = DB::table('permissions')->select('name', 'id')->where('group_name', $group_name)->get();
+
+        return  $permissions;
+    }//end
+
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\User;
 
 class RoleController extends Controller
 {
@@ -145,6 +146,18 @@ class RoleController extends Controller
 /////////////// end all roles ///////////////
 
 
+
+/////////////role in permission///////////////
+public function RolesInPermission() {
+    $roles = Role::all();
+    $permissions = Permission::all();
+    $permission_group = User::getPermissionGroup();
+    return view('backend.pages.role.add_role_permission', compact('roles', 'permissions', 'permission_group'));
+}
+
+
+
+///////////end role in permission/////////////
 
 
 }
