@@ -33,5 +33,11 @@ class RoleController extends Controller
         );
 
         return redirect()->route('all.permission')->with($notification);
+    }//end 
+
+    //edit permission 
+    public function EditPermission($id) {
+        $permission = Permission::findOrFail($id);
+        return view('backend.pages.permission.edit_permission', compact('permission'));
     }
 }
