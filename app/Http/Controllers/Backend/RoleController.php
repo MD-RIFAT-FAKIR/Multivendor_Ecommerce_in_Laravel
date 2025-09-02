@@ -14,11 +14,12 @@ class RoleController extends Controller
         $permissions = Permission::all();
 
         return view('backend.pages.permission.all_permission', compact('permissions'));
-    }
+    }//end
+    
     //add permission
     public function AddPermission() {
         return view('backend.pages.permission.add_permission');
-    }
+    }//end
 
     //store permission in database
     public function StorePermission(Request $request) {
@@ -39,7 +40,7 @@ class RoleController extends Controller
     public function EditPermission($id) {
         $permission = Permission::findOrFail($id);
         return view('backend.pages.permission.edit_permission', compact('permission'));
-    }
+    }//end
 
     //update permission 
     public function UpdatePermission(Request $request) {
@@ -57,7 +58,20 @@ class RoleController extends Controller
 
         return redirect()->route('all.permission')->with($notification);
 
-    }
+    }//end
+
+    //delete permission 
+    public function DeletePermission($id) {
+        Permission::findOrFail($id)->delete();
+
+         $notification = array(
+            'message' => 'Permisson Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+    }//end
 
 
 }
