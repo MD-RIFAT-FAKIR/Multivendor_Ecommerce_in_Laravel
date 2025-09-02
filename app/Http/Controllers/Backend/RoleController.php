@@ -90,6 +90,21 @@ class RoleController extends Controller
         return view('backend.pages.role.add_role');
     }
 
+    //store role to database
+    public function StoreRole(Request $request) {
+        Role::create([
+            'name' => $request->name,
+        ]);
+
+        $notification = array(
+            'message' => 'Role Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.roles')->with($notification);
+
+    }
+
 
 
 
