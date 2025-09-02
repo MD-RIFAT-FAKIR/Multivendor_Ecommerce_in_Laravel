@@ -36,6 +36,7 @@ use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ActiveUsersController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\SiteSettingController;
+use App\Http\Controllers\Backend\RoleController;
 
 
 
@@ -664,6 +665,14 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         ///////end seo settins//////
     });
     //end admin site settings all route
+
+
+    //admin role and permission all route
+    Route::controller(RoleController::class)->group(function() {
+        //all permission
+        Route::get('all/permission', 'AllPermission')->name('all.permission');
+        
+    });//end admin role and permission all route
 
 });
 //end admin middleware
