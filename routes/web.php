@@ -667,7 +667,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     //end admin site settings all route
 
 
-    //admin role and permission all route
+    //admin permission all route
     Route::controller(RoleController::class)->group(function() {
         //all permission
         Route::get('all/permission', 'AllPermission')->name('all.permission');
@@ -682,7 +682,24 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //delete permission
         Route::get('delete/permission/{id}', 'DeletePermission')->name('delete.permission');
         
-    });//end admin role and permission all route
+    });//end admin permission all route
+
+    //admin roles all route
+    Route::controller(RoleController::class)->group(function() {
+        //all roles
+        Route::get('all/roles', 'AllRoles')->name('all.roles');
+        //add roles
+        Route::get('add/permission', 'AddPermission')->name('add.permission');
+        //store roles
+        Route::post('store/permission', 'StorePermission')->name('store.premission');
+        //edit roles
+        Route::get('edit/permission/{id}', 'EditPermission')->name('edit.permission');
+        //update roles
+        Route::post('update/permission', 'UpdatePermission')->name('update.permission');
+        //delete roles
+        Route::get('delete/permission/{id}', 'DeletePermission')->name('delete.permission');
+        
+    });//end admin roles all route
 
 });
 //end admin middleware

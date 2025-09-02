@@ -9,13 +9,15 @@ use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
+
+
     //all permission
     public function AllPermission() {
         $permissions = Permission::all();
 
         return view('backend.pages.permission.all_permission', compact('permissions'));
     }//end
-    
+
     //add permission
     public function AddPermission() {
         return view('backend.pages.permission.add_permission');
@@ -72,6 +74,23 @@ class RoleController extends Controller
         return redirect()->back()->with($notification);
 
     }//end
+
+
+///////////////// all roles /////////////////
+
+    public function AllRoles() {
+        $roles = Role::all();
+
+        return view('backend.pages.role.all_roles', compact('roles'));
+    }
+
+
+
+
+
+/////////////// end all roles ///////////////
+
+
 
 
 }
