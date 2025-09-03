@@ -712,9 +712,18 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         //update role permission
         Route::post('update/role/permission/{id}', 'UpdateRolesPermission')->name('update.role.permission');
         //delete role 
-        Route::get('admin/delete/role/{id}', 'DeleteRolesPermission')->name('admin.delete.role');
-        
+        Route::get('admin/delete/role/{id}', 'DeleteRolesPermission')->name('admin.delete.role');  
         ///////end role in permission//////
+
+        ///////////////manage all admin user/////////////////
+        Route::controller(AdminController::class)->group(function() {
+        //all admin page
+        Route::get('all/admin', 'AllAdmin')->name('all.admin');
+        
+        });
+
+
+        /////////////end manage all admi nuser///////////////
         
     });//end admin roles all route
 
