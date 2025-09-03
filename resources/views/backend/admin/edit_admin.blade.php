@@ -29,7 +29,7 @@
 	<div class="card">
 		<div class="card-body">
 
-		<form method="post" action=""  >
+		<form method="post" action="{{ route('admin.user.update',$user->id) }}"  >
 			@csrf
 		
 			<div class="row mb-3">
@@ -85,7 +85,7 @@
 		    <select name="roles" class="form-select mb-3" aria-label="Default select example">
         <option selected="">Open this select menu</option>
         @foreach($roles as $role)
-        <option value="{{ $role->id }}" 
+        <option value="{{ $role->name }}" 
             {{ $user->roles->contains('id', $role->id) ? 'selected' : '' }}>
             {{ $role->name }}
         </option>
