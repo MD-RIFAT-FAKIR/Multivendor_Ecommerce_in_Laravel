@@ -727,7 +727,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('edit/admin/role/{id}', 'EditAdminRole')->name('edit.admin.role');
         //update admin role
         Route::post('admin/user/update/{id}', 'UpdateAdminRole')->name('admin.user.update');
-        
+        //delete admin role
+        Route::get('delete/admin/role/{id}', 'DeleteAdminRole')->name('delete.admin.role');
         });
 
 

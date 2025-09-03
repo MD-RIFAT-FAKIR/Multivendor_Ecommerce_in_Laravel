@@ -231,7 +231,23 @@ class AdminController extends Controller
         );
 
         return redirect()->route('all.admin')->with($notification);
-    }
+    }//end update admin user role
+
+    //admin user role delete
+    public function DeleteAdminRole($id) {
+        $user = User::findOrFail($id);
+
+        if(!is_null($user)) {
+            $user->delete();
+        }
+
+        $notification = array(
+            'message' => 'Admin user role deleted successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }// end admin user role delete
 
 
   //////////////end manage all admin user///////////////////
