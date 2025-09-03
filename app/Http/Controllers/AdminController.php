@@ -173,7 +173,7 @@ class AdminController extends Controller
 
     //admin user store
     public function AdminUserStore(Request $request) {
-        
+
         $user = new User();
         $user->username = $request->username;
         $user->name = $request->name;
@@ -196,6 +196,14 @@ class AdminController extends Controller
 
         return redirect()->route('all.admin')->with($notification);
 
+    }//end 
+
+    //edit admin user
+    public function EditAdminRole($id) {
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+
+        return view('backend.admin.edit_admin', compact('roles', 'user'));
     }
 
 
