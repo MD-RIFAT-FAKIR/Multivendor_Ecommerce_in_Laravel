@@ -717,10 +717,12 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
         ///////////////manage all admin user/////////////////
         Route::controller(AdminController::class)->group(function() {
-        //all admin page
+        //all admin user
         Route::get('all/admin', 'AllAdmin')->name('all.admin');
-        //add admin page
+        //add admin user
         Route::get('add/admin', 'AddAdmin')->name('add.admin');
+        //store admin user
+        Route::post('admin/user/store', 'AdminUserStore')->name('admin.user.store');
         
         });
 
