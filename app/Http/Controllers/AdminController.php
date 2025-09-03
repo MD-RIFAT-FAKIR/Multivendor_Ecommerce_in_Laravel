@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
@@ -161,6 +163,13 @@ class AdminController extends Controller
 
         return view('backend.admin.all_admin', compact('alladminuser'));
     }//end
+
+    //add admin user 
+    public function AddAdmin() {
+        $roles = Role::all();
+
+        return view('backend.admin.add_admin', compact('roles'));
+    }
 
 
   //////////////end manage all admin user///////////////////

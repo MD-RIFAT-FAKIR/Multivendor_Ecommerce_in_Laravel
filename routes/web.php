@@ -719,6 +719,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::controller(AdminController::class)->group(function() {
         //all admin page
         Route::get('all/admin', 'AllAdmin')->name('all.admin');
+        //add admin page
+        Route::get('add/admin', 'AddAdmin')->name('add.admin');
         
         });
 
