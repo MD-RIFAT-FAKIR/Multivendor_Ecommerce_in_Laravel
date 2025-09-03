@@ -47,7 +47,11 @@
 				<td>{{ $item->name }}</td>
 				<td>{{ $item->email }}</td>
 				<td>{{ $item->phone }}</td>
-				<td>{{ $item->role }}</td> 
+				<td>
+          @foreach($item->roles as $role)
+            <span class="badge badge-pill bg-info ">{{ $role->name }}</span>
+          @endforeach
+        </td> 
 				
 				<td>
 <a href="{{ route('edit.admin.role',$item->id) }}" class="btn btn-info">Edit</a>
