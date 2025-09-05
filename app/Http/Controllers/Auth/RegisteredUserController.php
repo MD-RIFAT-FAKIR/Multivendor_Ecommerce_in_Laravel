@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\RegisterComplete;
 
 class RegisteredUserController extends Controller
 {
@@ -30,6 +32,9 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        $adminUser = User::where('role', 'admin')->get();
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
@@ -41,6 +46,11 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+
+
+        //notify admin registered notifications
+        Notification::send($adminUser, new RegisterComplete($request->name));
 
         event(new Registered($user));
 
