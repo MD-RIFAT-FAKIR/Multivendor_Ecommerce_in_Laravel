@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Notifications\VendorApprove;
+use Illuminate\Support\Facades\Notification;
 
 class AdminController extends Controller
 {
@@ -124,6 +126,11 @@ class AdminController extends Controller
             'message' => 'Vendor Activated successfully',
             'alert-type' => 'success'
         );
+
+        //after approve vendor will get notify
+        $vendorUser = User::where('role', 'vendor')->get();
+        Notification::send($vendorUser, new VendorApprove($request));
+
         return redirect()->route('active.vendor')->with($notification);
     }//end
 
