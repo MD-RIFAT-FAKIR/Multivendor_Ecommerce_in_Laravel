@@ -772,4 +772,6 @@ Route::controller(IndexController::class)->group(function() {
 Route::controller(ShopConroller::class)->group(function() {
     //shop page
     Route::get('shop/page', 'ShopPage')->name('shop.page');
+    //shop filter
+    Route::post('shop/filter', 'ShopFilter')->name('shop.filter');
 });//end frontend hearder's shop menu
