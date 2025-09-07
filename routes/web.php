@@ -37,6 +37,7 @@ use App\Http\Controllers\Backend\ActiveUsersController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Frontend\ShopConroller;
 
 
 
@@ -766,3 +767,9 @@ Route::controller(IndexController::class)->group(function() {
     Route::post('/search-product', 'SearchRecomnend');
 });
 //end search product item all route
+
+//frontend hearder's shop menu
+Route::controller(ShopConroller::class)->group(function() {
+    //shop page
+    Route::get('shop/page', 'ShopPage')->name('shop.page');
+});//end frontend hearder's shop menu

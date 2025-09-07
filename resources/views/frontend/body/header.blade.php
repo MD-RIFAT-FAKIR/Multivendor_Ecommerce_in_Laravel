@@ -207,7 +207,7 @@
                     <div class="header-nav d-none d-lg-flex">
                         <div class="main-categori-wrap d-none d-lg-block">
                             <a class="categories-button-active" href="#">
-                                <span class="fi-rs-apps"></span>   All Categories
+                                <span class="fi-rs-apps"></span>Categories
                                 <i class="fi-rs-angle-down"></i>
                             </a>
                             <div class="categories-dropdown-wrap categories-dropdown-active-large font-heading">
@@ -256,8 +256,7 @@
                         </div>
                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block font-heading">
                             <nav>
-                                <ul>
-                                    
+                                <ul>                 
                                     <li>
                                         <a class="active" href="{{ url('/') }}">Home  </a>
                                         
@@ -282,9 +281,11 @@
                                         </ul>
                                     </li>  
                                     @endforeach
-                                    <li>
-                                    
+                                    <li>                                 
                                         <a href="{{ route('home.blog') }}">Blog</a>
+                                    </li>
+                                    <li>                                 
+                                        <a href="{{ route('shop.page') }}">Shop</a>
                                     </li>
                                 </ul>
                             </nav>
