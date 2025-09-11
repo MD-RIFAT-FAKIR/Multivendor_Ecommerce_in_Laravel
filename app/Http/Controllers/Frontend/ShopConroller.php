@@ -32,6 +32,12 @@ class ShopConroller extends Controller
             $products = Product::where('status',1)->orderBy('id','DESC')->get();
         }
 
+        //price range
+         if(!empty($request->price)) {
+            $price = explode('-', $request->price);
+            $products = $products->whereBetween('selling_price',$price);
+        }
+
 
         $categories = Category::orderBy('category_name','ASC')->get();
         $brands = Brand::orderBy('brand_name','ASC')->get();
@@ -65,7 +71,17 @@ class ShopConroller extends Controller
         $brandUrl = implode(',', $brand);
     }
 
-    return redirect()->route('shop.page', ['category' => $catUrl, 'brand' => $brandUrl]);
+    // filter for price range
+    $priceUrl = '';
+    if (!empty($request->price_range)) {
+        $priceUrl = $request->price_range;
+    }
+
+    return redirect()->route('shop.page', [
+        'category' => $catUrl, 
+        'brand' => $brandUrl, 
+        'price'    => $priceUrl
+    ]);
 }
 
     

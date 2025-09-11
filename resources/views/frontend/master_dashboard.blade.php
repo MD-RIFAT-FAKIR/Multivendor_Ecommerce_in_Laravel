@@ -31,6 +31,8 @@
 
      <!-- stripe payment -->
       <script src="https://js.stripe.com/v3/"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
 </head>
 
 <body>
@@ -88,6 +90,8 @@
     <script src="{{asset('frontend/assets/js/script.js')}}"></script>
     <!-- cart sweet alart cdn -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
 
     <!-- ajax setup for product quickview modal -->
     <!-- Change "javascritp" to "javascript" -->
